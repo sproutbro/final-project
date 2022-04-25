@@ -12,6 +12,7 @@
 
 # Mac
 .DS_Store
+Users/
 
 # Maven
 log/
