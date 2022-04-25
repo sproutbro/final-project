@@ -15,7 +15,7 @@
 		비번 : <input type="text" name="user_pass"><br/>
 		이름 : <input type="text" name="user_name"><br/>
 		이메일 : <input type="text" name="user_email"><br/>
-		닉네임 : <input type="text" name="user_nickname"><br/>
+		닉네임 : <input type="text" name="user_nick"><br/>
 		<!-- 등급 : <input type="text" name="user_grade"><br/> -->
 		
 		성인확인 : 

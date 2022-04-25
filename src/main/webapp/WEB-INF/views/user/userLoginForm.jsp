@@ -17,8 +17,8 @@
 	<a href="companyLoginForm">사장로그인</a>
 	
 	<br><br><br>
-	<a href="#">아이디 찾기</a> | 
-	<a href="#">비밀번호 찾기</a>
+	<a href="userFind?userCheck=true">아이디 찾기</a> | 
+	<a href="userFind?userCheck=false">비밀번호 찾기</a>
 	<br><br><br><br><br> 
 	<div>페이스북 로그인</div>
 	<div>네이버 로그인</div>

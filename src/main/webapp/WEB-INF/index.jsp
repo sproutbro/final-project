@@ -14,6 +14,7 @@
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="resources/js/commond.js"></script>
 <script src="resources/js/cart.js"></script>
+<script src="resources/js/user.js"></script>
 
 <!-- Modal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
