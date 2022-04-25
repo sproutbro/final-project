@@ -3,22 +3,32 @@ package com.spring.baemin.domain;
 import java.sql.Timestamp;
 
 public class Company {
-	private String comId, comPass, comCeoName, comPhone, comAddr1, comAddr2, comAddr3,
+	private String comId, comPass, comCeoName, comName, comPhone, comAddr1, comAddr2, comAddr3,
 				comLicense, comEmail;
 	private Timestamp comRegDate;
 	
 	public Company() {}
-	public Company(String comId, String comPass, String comCeoName, String comPhone,
-					String comAddr1, String comAddr2, String comAddr3, String comLicense, String comEmail) {
+	public Company(String comId,String comName, String comPass, String comCeoName, String comPhone,
+					String comAddr1, String comAddr2, String comAddr3, String comLicense, String comEmail,Timestamp comRegDate
+					) {
 		this.comId = comId;
 		this.comPass = comPass;
 		this.comCeoName = comCeoName;
+		this.comName = comName;
 		this.comPhone = comPhone;
 		this.comAddr1 = comAddr1;
 		this.comAddr2 = comAddr2;
 		this.comAddr3 = comAddr3;
 		this.comLicense = comLicense;
 		this.comEmail = comEmail;
+		this.comRegDate = comRegDate;
+	}
+	
+	public String getComName() {
+		return comName;
+	}
+	public void setComName(String comName) {
+		this.comName = comName;
 	}
 	public String getComId() {
 		return comId;
