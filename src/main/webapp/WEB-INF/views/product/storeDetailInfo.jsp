@@ -1,14 +1,12 @@
-\<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script type="text/javascript" src="https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?
-		ncpClientId=27hxsduogs&submodules=geocoder"></script>
 <article>
 	<div class="header">
 		<div class="back header1"><img src="resources/img/icon/back.png"></div>
 		<div class="main_address header2" >${store.storeName }</div>
 		<c:if test="${isCompany }">
-			<div class="header3" ><a href="productInsertForm?storeNo=${storeNo}">등록</a></div>
+			<div class="header3" ><a href="productInsertForm?storeNo=${store.storeNo}">등록</a></div>
 		</c:if>
 		<c:if test="${not isCompany }">
 			<div class="header3" ><a href="#"><img class="searchImg" src="resources/img/icon/search2.png"></a></div>
@@ -58,10 +56,10 @@
 		</table>
 	</div>
 	
-	<div class="space">&nbsp;</div>
+	<div class="storeSpace">&nbsp;</div>
 	<div class="sotreContent flex">
 		<div>메뉴</div>
-		<div><a href="storeDetailInfo?storeNo=${storeNo }">정보</a></div>
+		<div>정보</div>
 		<div>리뷰</div>
 	</div>
 	<div class="storeCat flex">
@@ -71,44 +69,32 @@
 		<div>베이커리</div>
 		<div>디저트, 기타</div>
 	</div>
-	<div class="reprence_menu">	
-		<h3>대표 메뉴</h3>
-		
-		<!-- 대표메뉴 -->
-		<c:forEach var="p" items="${pList }" >
-		<a href="productDetailForm?productNo=${p.productNo }">
-		<div class="storeDetail">
-			<div>
-				<div class="storeName-min">${p.productName }</div>   
-				<div>${p.productPrice } 원</div>
-			</div>
-			<div class="storeDetailImg">
-				<img src="#">
-			</div>
-		</div>
-		</a>
-		</c:forEach>
-	</div>
+	<table>
+	<c:if test="${isCompany }">
+			<div class="" ><a href="deliveryInsertFrom?storeNo=${store.storeNo}">등록</a></div>
+	</c:if>
+	<span>주문금액 별 배달팁</span>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	<span>지역별 추가  배달팁</span>
+	<c:if test="${isCompany }">
+	<c:forEach var="d" items="${ dList }" varStatus="status">
+		<tr>
+			<td><a href="deliveryUpdateForm?storeNo=${store.storeNo}&deliNo=${d.deliNo}">${ d.deliArea }</a></td>
+			<td>${ d.deliPrice }</td>
+		</tr>
+		</c:forEach>		
+	</c:if>
+	<c:if test="${not isCompany }">
+		<c:forEach var="d" items="${ dList }" varStatus="status">
+		<tr>
+			<td>${ d.deliArea }</td>
+			<td>${ d.deliPrice }</td>
+		</tr>
+		</c:forEach>		
+	</c:if>		
+	</table>
 	
-	<div id="ex1" class="modal">
-		<p>Thanks for clicking. That felt good.</p>
-		<a href="#" rel="modal:close">Close</a>
-	</div>
-	
-	
-	<jsp:include page="../../template/cartBtnForm.jsp" />
-	<script>
-		var map = new naver.maps.Map('map', {
-		zoom: 11,
-		mapTypes: new naver.maps.MapTypeRegistry({
-			'normal': naver.maps.NaverStyleMapTypeOptions.getNormalMap({
-				overlayType: 'bg.ol.ts.ctt.lko'
-		    })
-		  })
-		});
-	
-	
-	
-	
-	</script>
 </article>
