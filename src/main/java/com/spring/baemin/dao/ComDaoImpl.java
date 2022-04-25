@@ -4,6 +4,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.baemin.domain.Company;
+
 @Repository
 public class ComDaoImpl implements ComDao {
 	
@@ -20,5 +22,16 @@ public class ComDaoImpl implements ComDao {
 
 		return pass;
 	}
-
+	@Override
+	public void insertCompany(Company company) {
+		sqlSession.selectOne(NAME_SPACE + ".insertCompany", company);
+	}
+	@Override
+	public void updateCompany(Company company) {
+		sqlSession.update(NAME_SPACE + ".updateCompany", company);
+	}
+	@Override
+	public void deleteCompany(String comId) {
+		sqlSession.delete(NAME_SPACE + ".deleteCompany", comId);
+	}
 }

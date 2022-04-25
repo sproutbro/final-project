@@ -11,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.spring.baemin.domain.Company;
 import com.spring.baemin.service.ComService;
 import com.spring.baemin.service.StoreService;
 
@@ -66,5 +68,39 @@ public class CompanyController {
 	public String comLogout(HttpSession session) {
 		session.invalidate();
 		return "company/companyMain";
+	}
+	@RequestMapping(value="comInsertProcess", method=RequestMethod.POST)
+	public String comInsertProcess(Company company,
+			String comEmail, String domain,String comPhone1,
+			String comPhone2,String comPhone3) {
+		
+		company.setComEmail(comEmail + "@" + domain);
+		company.setComPhone(comPhone1 + "-" + comPhone2 + "-" +comPhone3);
+		
+		comService.insertCom(company);
+		
+		
+		return "company/companyLoginForm";
+	}
+	@RequestMapping("companyUpdateProcess")
+	public String companyUpdate(Model model, Company company,
+			String comPass, String comEmail, String domain, String comPhone1,String comPhone2,String comPhone3
+			) {
+		company.setComPass(comPass);
+		company.setComEmail(comEmail + "@" + domain);
+		company.setComPhone(comPhone1 + "-" + comPhone2 + "-" + comPhone3);
+		
+		comService.updateCompany(company);
+		
+		model.addAttribute("company", company);
+		
+		return "company/companyMain";
+	}
+	@RequestMapping("companydeleteProcess")
+	public String companyDelete(String comId,HttpSession session) {
+
+		comService.deleteCompany(comId);
+		session.invalidate();
+		return "company/companyLoginForm";
 	}
 }
