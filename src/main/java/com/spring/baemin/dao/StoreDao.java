@@ -7,5 +7,5 @@ import com.spring.baemin.domain.Store;
 public interface StoreDao {
 	public abstract void storeInsert(Store store);
 	public abstract Store getStore(int storeNo);
-	public abstract List<Store> getStoreList(String comId);
+	public abstract List<Store> getStoreList(String comId, int mainCat);
 }
