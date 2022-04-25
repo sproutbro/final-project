@@ -1,13 +1,10 @@
 package com.spring.baemin.dao;
 
-import java.util.List;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.baemin.domain.Order;
-import com.spring.baemin.domain.User;
 
 @Repository
 public class OrderDaoImpl implements OrderDao{
