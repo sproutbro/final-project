@@ -5,7 +5,7 @@ public class User {
 	private String user_pass;
 	private String user_name;
 	private String user_email;
-	private String user_nickname;
+	private String user_nick;
 	private int user_grade;
 	private int user_isadult;
 	private int user_isclause;
@@ -44,12 +44,12 @@ public class User {
 		this.user_email = user_email;
 	}
 
-	public String getUser_nickname() {
-		return user_nickname;
+	public String getUser_nick() {
+		return user_nick;
 	}
 
-	public void setUser_nickname(String user_nickname) {
-		this.user_nickname = user_nickname;
+	public void setUser_nick(String user_nick) {
+		this.user_nick = user_nick;
 	}
 
 	public int getUser_grade() {
@@ -95,7 +95,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [user_id=" + user_id + ", user_pass=" + user_pass + ", user_name=" + user_name + ", user_email="
-				+ user_email + ", user_nickname=" + user_nickname + ", user_grade=" + user_grade + ", user_isadult="
+				+ user_email + ", user_nick=" + user_nick + ", user_grade=" + user_grade + ", user_isadult="
 				+ user_isadult + ", user_isclause=" + user_isclause + ", user_phone=" + user_phone + ", user_point="
 				+ user_point + "]";
 	}

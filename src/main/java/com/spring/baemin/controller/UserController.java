@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +41,7 @@ public class UserController {
 		user.setUser_pass(param.get("user_pass"));
 		user.setUser_name(param.get("user_name"));
 		user.setUser_email(param.get("user_email"));
-		user.setUser_nickname(param.get("user_nickname"));
+		user.setUser_nick(param.get("user_nick"));
 		user.setUser_isadult(1);
 		user.setUser_isclause(1);
 		user.setUser_phone(param.get("user_phone"));
@@ -82,6 +83,14 @@ public class UserController {
 		session.invalidate();
 
 		return "redirect:/";
+	}
+	
+	@RequestMapping("/userFind")
+	public String userFind(boolean userCheck, Model model) {
+		
+		model.addAttribute("userCheck", userCheck);
+		
+		return "user/userFind";
 	}
 
 }

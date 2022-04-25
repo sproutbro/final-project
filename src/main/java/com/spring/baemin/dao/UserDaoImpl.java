@@ -1,6 +1,7 @@
 package com.spring.baemin.dao;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,56 @@ public class UserDaoImpl implements UserDao {
 	public User getUser(String user_id) {
 		return sqlSession.selectOne(NAME_SPACE + ".getUser", user_id);
 	}
+
+	
+	
+	@Override
+	public int userEmailCheck(String user_email) {
+		return sqlSession.selectOne(NAME_SPACE + ".userEmailCheck", user_email);
+	}
+
+	@Override
+	public int userNameCheck(String user_email, String user_name) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_email", user_email);
+		map.put("user_name", user_name);
+		return sqlSession.selectOne(NAME_SPACE + ".userNameCheck", map);
+	}
+
+	@Override
+	public String getUserId(String user_email) {
+		System.out.println("@Repository1");
+		return sqlSession.selectOne(NAME_SPACE + ".userFindId", user_email);
+	}
+
+	@Override
+	public int userIdCheck(String user_email, String user_name, String user_id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_email", user_email);
+		map.put("user_name", user_name);
+		map.put("user_id", user_id);
+		
+		return sqlSession.selectOne(NAME_SPACE + ".userIdCheck", map);
+	}
+
+	@Override 
+	public String getUserPass(String user_email,String user_name, String user_id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("user_email", user_email);
+		map.put("user_name", user_name);
+		map.put("user_id", user_id);
+		return sqlSession.selectOne(NAME_SPACE + ".userFindPass", map); 
+	}
+	
+	public int userPassCheck(String user_email, String user_name, String user_id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("user_email", user_email);
+		map.put("user_name", user_name);
+		map.put("user_id", user_email);
+		return sqlSession.selectOne(NAME_SPACE + ".userPassCheck" , map);
+	}
+	
 
 }
