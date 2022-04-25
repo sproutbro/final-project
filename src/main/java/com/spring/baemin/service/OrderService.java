@@ -1,9 +1,7 @@
 package com.spring.baemin.service;
 
-import java.util.List;
 import java.util.Map;
 
-import com.spring.baemin.domain.Order;
 import com.spring.baemin.domain.User;
 
 public interface OrderService {
