@@ -61,7 +61,7 @@
 	<div class="space">&nbsp;</div>
 	<div class="sotreContent flex">
 		<div>메뉴</div>
-		<div>정보</div>
+		<div><a href="storeDetailInfo?storeNo=${storeNo }">정보</a></div>
 		<div>리뷰</div>
 	</div>
 	<div class="storeCat flex">

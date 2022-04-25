@@ -27,12 +27,17 @@
 	<select id="getStoreList" parameterType="map" resultType="Store" resultMap="resultMap">
 		SELECT * FROM store
 		
+		<if test="mainCat != 0">
 		<where>
-		<if test="comId != null">
-			com_id = #{comId}
-		</if>
+			main_cat = #{mainCat}
 		</where>
-	 	
+		</if>
+		
+		<if test="comId != null">
+		<where>
+			com_id = #{comId}
+		</where>
+		</if>
 	</select>	
 	
 	<resultMap id="resultMap" type="Store">

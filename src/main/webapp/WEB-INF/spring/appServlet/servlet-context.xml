@@ -40,5 +40,8 @@
 	<!-- company -->
 	<view-controller path="/companyLoginForm" view-name="company/companyLoginForm"/>
 	<view-controller path="/storeInsertForm" view-name="store/storeInsertForm"/>
+	<view-controller path="/companyInsertForm" view-name="company/companyInsertForm"/>
+	<view-controller path="/companyUpdateForm" view-name="company/companyUpdateForm"/>
+	<view-controller path="/companyDeleteForm" view-name="company/companyDeleteForm"/>
 	
 </beans:beans>
