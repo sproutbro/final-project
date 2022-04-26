@@ -19,20 +19,20 @@ public class WishController {
 	@RequestMapping(value = "wishClick", method = RequestMethod.POST)
 	@ResponseBody
 	public int wishClick(@RequestParam Long store_no, HttpSession session) {
-		int result = -1;
-		
 		String user_id = (String) session.getAttribute("user_id");
 		
-		if(user_id != null) {
-			wishService.wishClick(store_no, user_id);
-			result = 1;
+		if(user_id == null) {
+			return -1;			
 		} else {
-			System.out.println("꺼져");
-			System.out.println(user_id);
-			System.out.println(store_no);
+			return wishService.wishClick(store_no, user_id);			
 		}
 		
-		return result;
+	}
+	
+	@RequestMapping(value = "wishCount", method = RequestMethod.POST)
+	@ResponseBody
+	public int wishCount(@RequestParam Long store_no, HttpSession session) {
+		return wishService.wishCount(store_no);
 	}
 	
 }
