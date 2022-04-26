@@ -15,7 +15,7 @@
 		<span><img src="#"></span>
 		<span><img src="#"></span>
 	</div>
-	<div class="main_category">
+	<div class="flex-wrap main-category">
 		<a href="storeListForm?mainCat=1"><img src="resources/img/icon/main/g.png"><br>돈까스·회·일식</a>
 		<a href="storeListForm?mainCat=2"><img src="resources/img/icon/main/k.png"><br>중식</a>
 		<a href="storeListForm?mainCat=3"><img src="resources/img/icon/main/h.png"><br>치킨</a>

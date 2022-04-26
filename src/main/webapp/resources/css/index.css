@@ -67,17 +67,24 @@ article{
 	margin: 5px;
 	border: 1px solid black;
 }
-.main_category{
+.flex-wrap{
 	display: flex;
 	flex-wrap: wrap;
 }
-.main_category > *{
+.flex-wrap > *{
 	padding: 20px;
-	flex: 20%;
+
 	font-weight: bold;
 	font-size: 14px;
 	letter-spacing: -0.05em;
 	text-align: center;
+}
+.main-category > *{
+	flex: 20%;
+}
+.myPage-category > *{
+	flex: 30%;
+	border: 1px solid #eaeaea;
 }
 .main_footer{
 	display: flex;
