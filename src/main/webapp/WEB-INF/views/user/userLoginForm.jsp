@@ -15,6 +15,7 @@
 	</form>
 	
 	<a href="companyLoginForm">사장로그인</a>
+	<a href="companyInsertForm">사장 회원가입</a>
 	
 	<br><br><br>
 	<a href="userFind?userCheck=true">아이디 찾기</a> | 
