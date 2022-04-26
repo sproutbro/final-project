@@ -7,6 +7,7 @@
 		<div class="main_address header2" >My배민</div>
 		<div class="header3" >&nbsp;</div>
 	</div>
+	<div class="space"></div>
 	
 	<div id="loginForm" class="">
 		<img src="#">
