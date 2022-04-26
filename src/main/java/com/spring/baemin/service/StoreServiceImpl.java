@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.baemin.dao.DeliveryDao;
 import com.spring.baemin.dao.StoreDao;
 import com.spring.baemin.domain.Store;
 
@@ -16,9 +17,14 @@ import com.spring.baemin.domain.Store;
 public class StoreServiceImpl implements StoreService {
 	
 	public StoreDao storeDao;
+	public DeliveryDao deliveryDao;
 	@Autowired
 	public void setStoreDao(StoreDao storeDao) {
 		this.storeDao = storeDao;
+	}
+	@Autowired
+	public void setDeliveryDao(DeliveryDao deliveryDao) {
+		this.deliveryDao = deliveryDao;
 	}
 
 	@Override
@@ -27,10 +33,11 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public Map<String, Object> getStoreList(String comId) {
+	public Map<String, Object> getStoreList(String comId, int mainCat) {
 		
 		List<Store> sList = new ArrayList<Store>();
-		sList = storeDao.getStoreList(comId);
+		sList = storeDao.getStoreList(comId,mainCat);
+		
 		
 		Map<String, Object> mapModel = new HashMap<String, Object>();
 		mapModel.put("sList", sList);		

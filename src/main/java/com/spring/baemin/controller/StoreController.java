@@ -29,8 +29,8 @@ public class StoreController {
 	}
 	
 	@RequestMapping("storeListForm")
-	public String storeList(Model model, String comId) {
-		Map<String, Object> mapModel = storeService.getStoreList(comId);
+	public String storeList(Model model, String comId,int mainCat) {
+		Map<String, Object> mapModel = storeService.getStoreList(comId, mainCat);
 		model.addAllAttributes(mapModel);
 		
 		return "product/storeListForm";

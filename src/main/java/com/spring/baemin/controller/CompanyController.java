@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.spring.baemin.domain.Company;
@@ -53,12 +54,14 @@ public class CompanyController {
 	}
 	
 	@RequestMapping("company")
-	public String company(Model model, HttpSession session) {
+	public String company(Model model, HttpSession session,
+			@RequestParam(value="mainCat", required=false, defaultValue="0")int mainCat) {
 		logger.info("사장 메인화면 들어옴.");
 		String comId = (String) session.getAttribute("comId");
+		session.getAttribute("mainCat");
 		
 		Map<String, Object> mapModel = new HashMap<String, Object>();
-		mapModel = storeService.getStoreList(comId);
+		mapModel = storeService.getStoreList(comId,mainCat);
 		
 		model.addAllAttributes(mapModel);
 		

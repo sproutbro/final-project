@@ -29,9 +29,11 @@ public class StoreDaoImpl implements StoreDao {
 	}
 	
 	@Override
-	public List<Store> getStoreList(String comId) {	
+	public List<Store> getStoreList(String comId, int mainCat) {	
 		Map<String, Object> mapModel = new HashMap<String, Object>();
 		mapModel.put("comId", comId);
+		mapModel.put("mainCat", mainCat);
+		
 		return sqlSession.selectList(NAME_SPACE + ".getStoreList", mapModel);
 	}
 	
