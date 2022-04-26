@@ -29,9 +29,9 @@
 				</div>
 			</div>
 			<div class="storeLink flex">
-				<div><img src="resources/img/icon/phone.png"> 전화</div>|
-				<div id="wishBtn" data-storeno="${storeNo}"> <img src="resources/img/icon/heart.png"> 찜</div>|
-				<div> <img src="resources/img/icon/share.png"> 공유</div>
+				<div><img src="resources/img/icon/store/phone.png"> 전화</div>|
+				<div id="wishBtn" data-storeno="${storeNo}"> <img src="resources/img/icon/store/heart.png"> 찜</div>|
+				<div> <img src="resources/img/icon/store/share.png"> 공유</div>
 			</div>
 		</div>
 		<div class="deliSelect flex">
