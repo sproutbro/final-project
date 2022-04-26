@@ -61,7 +61,8 @@
 	<div id="cart-notice" class="cart-notice">
 		<p>장바구니에 메뉴를 추가했습니다.</p>
 	</div>
-	
+	<input type="hidden" id="pStoreNo" value="${storeNo }">
+	<input type="hidden" id="cStoreNo" value="${sessionScope.storeNo }">
 	<input type="hidden" name="isLogin" value="${sessionScope.isLogin }">
 	<input type="hidden" id="productNo" value="${productNo }">
 	<input type="hidden" id="totalCnt" value="1">

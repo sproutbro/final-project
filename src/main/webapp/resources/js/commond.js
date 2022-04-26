@@ -1,5 +1,5 @@
 $(function(){
-	$(".main_category img,.minus, .add, #cartBtn, #orderBtn, #odrInsert")
+	$(".main_category img,.minus, .add, #cartBtn, #orderBtn, #odrInsert, #wishBtn")
 		.css("cursor", "pointer")
 		.css("padding","0px");
 	

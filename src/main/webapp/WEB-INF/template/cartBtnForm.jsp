@@ -4,6 +4,9 @@
 <a href="cartForm">
 <div id="cartBtnForm">
 	&nbsp;<img id=cartImg src="resources/img/icon/cart.svg" />
-	<div id="cartNum">5</div>
+	<c:if test="${sessionScope.cartCnt > 0}">
+	
+	<div id="cartNum">${sessionScope.cartCnt }</div>
+	</c:if>
 </div>
 </a>

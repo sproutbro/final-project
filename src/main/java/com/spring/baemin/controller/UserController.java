@@ -1,6 +1,7 @@
 package com.spring.baemin.controller;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -59,20 +60,26 @@ public class UserController {
 	}
 
 	@RequestMapping("userLoginProcess")
-	public String userLoginProcess(@RequestParam HashMap<String, String> param, 
-			HttpServletRequest request, String user_id) {
+	public String userLoginProcess(HttpSession session, 
+			String user_id, String user_pass) {
 		logger.info("로그인시도.");
 
-		String pass = userService.userLoginProcess(param);
-
-		if (pass.equals(param.get("user_pass"))) {
-			HttpSession session = request.getSession();
-			session.setAttribute("isLogin", true);
-			session.setAttribute("user_id", user_id);
-			logger.info("{}로그인함.", param.get("user_id"));
+		Map<String, Object> modelMap = userService.userLoginProcess(user_pass, user_id);
+		
+		if((boolean)modelMap.get("isLogin") == true) {
+			session.setAttribute("isLogin", (boolean)modelMap.get("isLogin"));
+			session.setAttribute("user_id", modelMap.get("user_id"));
+			session.setAttribute("cartCnt", modelMap.get("cartCnt"));
+			session.setAttribute("productNo", modelMap.get("productNo"));
+			session.setAttribute("storeNo", modelMap.get("storeNo"));
+			logger.info("{}로그인함.", user_id);
+			return "redirect:/";
+		} else {
+			
+			return "redirect:/user/LoginForm";
 		}
 
-		return "redirect:/";
+		
 	}
 
 	@RequestMapping("userLogoutProcess")

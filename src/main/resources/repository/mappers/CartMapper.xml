@@ -42,6 +42,12 @@
 			</if>
 	</delete>
 	
+	<select id="cartCnt" parameterType="String" resultType="int">
+		SELECT count(*) FROM cart WHERE user_id=#{user_id}
+	</select>
+	
+	
+	
 	<resultMap id="cartResultMap" type="Cart">
 		<id property="cartNo" column="cart_no" />
 		<result property="user_id" column="user_id" />

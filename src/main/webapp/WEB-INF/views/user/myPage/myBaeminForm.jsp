@@ -14,12 +14,12 @@
 		<span>&gt;</span>
 	</div>
 	<br><br><br><br><br><br><br>
-	<div>
-		<a href="userPointForm">포인트</a> | 
-		<a href="userCouponForm">쿠폰함</a> | 
-		<a href="#">선물함</a><br> | 
-		<a href="userWishForm">찜</a> | 
-		<a href="userOrderForm">주문내역</a> | 
-		<a href="userReviewForm">리뷰관리</a> 
+	<div class="myPage-category flex-wrap">
+		<a href="userPointForm"><img src="resources/img/icon/myPage/point.png"><br>포인트</a>
+		<a href="userCouponForm"><img src="resources/img/icon/myPage/coupon.png"><br>쿠폰함</a>
+		<a href="#"><img src="resources/img/icon/myPage/gift.png"><br>선물함</a>
+		<a href="userWishForm"><img src="resources/img/icon/myPage/wish.png"><br>찜</a>
+		<a href="userOrderForm"><img src="resources/img/icon/myPage/orderList.png"><br>주문내역</a>
+		<a href="userReviewForm"><img src="resources/img/icon/myPage/review.png"><br>리뷰관리</a>
 	</div>
 </article>

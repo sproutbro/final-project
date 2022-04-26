@@ -23,7 +23,7 @@
 				<div class="storeScope">${store.storeScope }</div>
 				<div class="storeReview">
 					<span class="userReview">최근리뷰 0</span> | 
-					<span class="comReview">&nbsp;최근사장님댓글 0</span>
+					<span class="comReview">&nbsp;최근사장님댓글 0 </span>
 				</div>
 			</div>
 			<div class="storeLink flex">

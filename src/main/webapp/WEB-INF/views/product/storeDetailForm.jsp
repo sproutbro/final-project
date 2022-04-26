@@ -29,9 +29,9 @@
 				</div>
 			</div>
 			<div class="storeLink flex">
-				<div><img src="resources/img/icon/phone.png"> 전화</div>|
-				<div id="wishBtn" data-storeno="${storeNo}"> <img src="resources/img/icon/heart.png"> 찜</div>|
-				<div> <img src="resources/img/icon/share.png"> 공유</div>
+				<div><img src="resources/img/icon/store/phone.png"> 전화</div>|
+				<div id="wishBtn" data-storeno="${storeNo}"> <img src="resources/img/icon/store/heart.png"> 찜</div>|
+				<div> <img src="resources/img/icon/store/share.png"> 공유</div>
 			</div>
 		</div>
 		<div class="deliSelect flex">
@@ -75,8 +75,10 @@
 		<h3>대표 메뉴</h3>
 		
 		<!-- 대표메뉴 -->
+		
 		<c:forEach var="p" items="${pList }" >
-		<a href="productDetailForm?productNo=${p.productNo }">
+		<c:if test="${p.productIsPopular eq 1 }">
+		<a href="productDetailForm?storeNo=${storeNo }&productNo=${p.productNo }">
 		<div class="storeDetail">
 			<div>
 				<div class="storeName-min">${p.productName }</div>   
@@ -87,30 +89,29 @@
 			</div>
 		</div>
 		</a>
+		</c:if>
 		</c:forEach>
 	</div>
+
 	
-	<div id="ex1" class="modal">
-		<p>Thanks for clicking. That felt good.</p>
-		<a href="#" rel="modal:close">Close</a>
+	<c:forEach var="p" items="${pList }" >
+	<c:if test="${p.productIsPopular eq 0 }">
+	<a href="productDetailForm?productNo=${p.productNo }">
+	<div class="storeDetail">
+		<div>
+			<div class="storeName-min">${p.productName }</div>   
+			<div>${p.productPrice } 원</div>
+		</div>
+		<div class="storeDetailImg">
+			<img src="#">
+		</div>
 	</div>
+	</a>
+	</c:if>
+	</c:forEach>
 	
 	
 	<jsp:include page="../../template/cartBtnForm.jsp" />
-	<script>
-		var map = new naver.maps.Map('map', {
-		zoom: 11,
-		mapTypes: new naver.maps.MapTypeRegistry({
-			'normal': naver.maps.NaverStyleMapTypeOptions.getNormalMap({
-				overlayType: 'bg.ol.ts.ctt.lko'
-		    })
-		  })
-		});
-	
-	
-	
-	
-	</script>
 	
 	<!-- 섹시한 스크립트 -->
 	<script src="resources/js/sexyboyScript.js"></script>

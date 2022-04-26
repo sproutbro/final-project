@@ -55,23 +55,11 @@ public class OrderServiceImpl implements OrderService {
 		int cartNo = 0;
 		cartDao.cartDelete(cartNo, user_id);
 		
-		
-		
-		
-		
-		
-		
-		
-		
 		Store oStore = storeDao.getStore(storeNo);
-		
-		
-		
-		
+	
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		
 		modelMap.put("oStore", oStore);
-		
 		return null;
 	}
 

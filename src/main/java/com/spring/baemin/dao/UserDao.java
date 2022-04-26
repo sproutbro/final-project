@@ -8,7 +8,7 @@ public interface UserDao {
 
 	void userJoinProcess(User user);
 
-	String userLoginProcess(HashMap<String, String> param);
+	String userLoginProcess(String user_id);
 	
 	public abstract int userEmailCheck(String user_email);
 	public abstract int userNameCheck(String user_email, String user_name);

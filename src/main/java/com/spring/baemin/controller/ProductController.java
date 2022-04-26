@@ -23,13 +23,14 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/productDetailForm")
-	public String productDetailForm(Model model, int productNo) {
+	public String productDetailForm(Model model, int storeNo, int productNo) {
 		
 		Product product = productService.getProduct(productNo);
 		
 		
 		model.addAttribute("productNo", productNo);
 		model.addAttribute("p", product);
+		model.addAttribute("storeNo", storeNo);
 		return "product/productDetailForm";
 	}
 	
