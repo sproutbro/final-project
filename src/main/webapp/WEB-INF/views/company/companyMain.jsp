@@ -5,6 +5,7 @@
 	<h1>사장님 메인화면</h1>
 	
 	<h3>내 가게</h3>
+	<a href="companyUpdateForm">사장님 정보수정</a>
 	<!-- storeList start -->
 	<c:forEach var="s" items="${sList }">
 	<a href="storeDetailForm?storeNo=${s.storeNo}">
