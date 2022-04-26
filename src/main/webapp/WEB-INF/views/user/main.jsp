@@ -46,4 +46,7 @@
 		<div class="main_nav"><a href="userOrderForm" ><img src="resources/img/icon/orderList.png"><br>주문내역</a></div>
 		<div class="main_nav"><a href="myBaemin" ><img src="resources/img/icon/myBaemin.png"><br>My배민</a></div>
 	</div>
+	<c:if test="${sessionScope.cartCnt > 0}">
+	<jsp:include page="../../template/cartBtnForm.jsp" />
+	</c:if>
 </article>

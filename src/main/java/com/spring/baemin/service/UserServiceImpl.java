@@ -1,12 +1,17 @@
 package com.spring.baemin.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.baemin.dao.CartDao;
+import com.spring.baemin.dao.ProductDao;
 import com.spring.baemin.dao.UserDao;
+import com.spring.baemin.domain.Cart;
 import com.spring.baemin.domain.User;
 
 @Service
@@ -14,6 +19,10 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private CartDao cartDao;
+	@Autowired
+	private ProductDao productDao;
 	
 	@Override
 	public void userJoinProcess(User user) {
@@ -21,14 +30,42 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String userLoginProcess(HashMap<String, String> param) {
-		return userDao.userLoginProcess(param);
+	public Map<String, Object> userLoginProcess(String user_pass, String user_id) {
+		
+		int cartCnt = 0;
+		int productNo = 0;
+		int storeNo = 0;
+		boolean isLogin = false;
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<Cart> cartList = new ArrayList<Cart>();
+		
+		if(user_pass.equals(userDao.userLoginProcess(user_id))) {
+			isLogin = true;
+			map.put("user_id", user_id);
+			// 로그인 성공 시 카트 DAO 호출
+			cartCnt = cartDao.cartCnt(user_id);
+			if(cartCnt != 0) {
+				cartList = cartDao.getCartList(user_id);
+				productNo = cartList.get(0).getProductNo();
+				storeNo = productDao.getProduct(productNo).getStoreNo();
+				
+				// Map 카트 정보 저장
+				
+			} 
+		}		
+		
+		map.put("isLogin", isLogin);
+		map.put("cartCnt", cartCnt);  
+		map.put("productNo", productNo);
+		map.put("storeNo", storeNo);
+		return map;
 	}
 
 	@Override
 	public Map<String, Object> userFindId(String user_email, String user_name) {
 		int result = -1;
-		System.out.println("@Service1");
+
 		int emailCheck = userDao.userEmailCheck(user_email);
 		int nameCheck = userDao.userNameCheck(user_email, user_name);
 		String user_id = "";
@@ -46,7 +83,6 @@ public class UserServiceImpl implements UserService {
 		map.put("user_id", user_id);
 		map.put("result", result);
 		
-		System.out.println("@Service2");
 		return map;
 	}
 	

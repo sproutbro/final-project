@@ -40,6 +40,25 @@ $(function(){
 	// cartBtn 버튼 클릭시 폼 서브밋
 	$("#cartBtn").click(function(){
 		
+		var pStoreNo = Number($("#pStoreNo").val());
+		var cStoreNo = Number($("#cStoreNo").val());
+		
+		if(cStoreNo != pStoreNo && cStoreNo != 0) {
+			if (!confirm("장바구니에는 같은 가게의 메뉴만 담을 수 있습니다. \n 선택하신 메뉴를 장바구니에 담을 경우 이전에 담은 메뉴가 삭제됩니다.")) {
+				return false;
+		    } else {
+		    	$.ajax({
+		    		type: "POST",
+		    		url: "cartDelete.ajax",
+		    		success: function(){
+		    			alert("연결 성공");
+		    		},
+		    		error: function(){
+		    			alert("연결 실패");
+		    		}
+		    	});
+		    }
+		}
 		var totalCnt = $(".cartCnt").attr("data-totalCnt");
 		var totalAmt = $(".detail-footer-cartBtn>span:last-child").attr("data-totalAmt");
 		var productNo = $("#productNo").val();		
@@ -142,8 +161,4 @@ $(function(){
 		
 	});
 		
-		
-		
-		
-
 })

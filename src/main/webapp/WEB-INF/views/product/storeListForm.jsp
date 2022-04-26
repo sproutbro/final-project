@@ -51,5 +51,7 @@
 	
 	</c:forEach>
 	<!-- storeList end -->
+	<c:if test="${sessionScope.cartCnt > 0}">
 	<jsp:include page="../../template/cartBtnForm.jsp" />
+	</c:if>
 </article>

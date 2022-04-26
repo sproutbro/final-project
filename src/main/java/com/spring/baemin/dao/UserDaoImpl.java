@@ -23,9 +23,9 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public String userLoginProcess(HashMap<String, String> param) {
+	public String userLoginProcess(String user_id) {
 
-		return sqlSession.selectOne(NAME_SPACE + ".userLoginProcess", param);
+		return sqlSession.selectOne(NAME_SPACE + ".userLoginProcess", user_id);
 
 	}
 	

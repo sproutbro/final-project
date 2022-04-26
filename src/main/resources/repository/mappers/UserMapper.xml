@@ -11,7 +11,7 @@
 		#{user_phone}, 0, SYSDATE())
 	</insert>
 
-	<select id="userLoginProcess" resultType="String" parameterType="hashmap">
+	<select id="userLoginProcess" resultType="String" parameterType="String">
 		SELECT user_pass FROM user WHERE user_id = #{user_id}
 	</select>
 	

@@ -38,13 +38,16 @@ public class CartDaoImpl implements CartDao {
 
 	@Override
 	public void cartDelete(int cartNo, String user_id) {
-		System.out.println(user_id);
-		System.out.println(cartNo);
-		
+
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("cartNo", cartNo);
 		map.put("user_id", user_id);
 		sqlSession.delete(NAME_SPACE + ".cartDelete", map);
+	}
+
+	@Override
+	public int cartCnt(String user_id) {
+		return sqlSession.selectOne(NAME_SPACE + ".cartCnt", user_id);
 	}
 
 
