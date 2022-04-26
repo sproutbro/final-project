@@ -33,6 +33,11 @@ public class OrderController {
 	public String orderInsert(HttpSession session, Model model,
 						Order odr) {
 		
+		
+		
+		
+		
+		
 		String user_id = (String) session.getAttribute("user_id");
 		odr.setUser_id(user_id);
 		
