@@ -11,10 +11,13 @@
 <link rel="stylesheet" type="text/css" href="resources/css/store.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/cart.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/order.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/mypage.css" />
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="resources/js/commond.js"></script>
 <script src="resources/js/cart.js"></script>
 <script src="resources/js/user.js"></script>
+<script src="resources/js/myPage.js"></script>
+
 
 <!-- Modal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>

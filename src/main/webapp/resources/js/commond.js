@@ -1,7 +1,6 @@
 $(function(){
-	$(".main_category img,.minus, .add, #cartBtn, #orderBtn, #odrInsert, #wishBtn")
+	$(".main_category img,.minus, .add, #cartBtn, #orderBtn, #odrInsert, #wishBtn, .myPage-category, .loginInfo > *")
 		.css("cursor", "pointer")
-		.css("padding","0px");
 	
 	
 	$(".back").css("cursor","pointer").click(function(){
