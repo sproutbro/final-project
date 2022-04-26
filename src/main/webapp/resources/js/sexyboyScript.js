@@ -32,9 +32,9 @@ searchForm.submit(e => {
 		url: "storeSearch",
 		data: {searchKey}
 	}).done(res => {
+		$(".searchList").html("")
 
 		for(var i in res) {
-			console.log(res[i])
 			$(".searchList").append(
 				`<a href="storeDetailForm?storeNo=` + res[i].storeNo + `">
 				<div class="storeList">
