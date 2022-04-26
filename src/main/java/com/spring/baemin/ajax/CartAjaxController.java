@@ -37,7 +37,7 @@ public class CartAjaxController {
 	@ResponseBody
 	public void cartDelete(HttpSession session) {
 		String user_id = (String) session.getAttribute("user_id");
-		cartNo = 0;
+		int cartNo = 0;
 		cartService.cartDelete(cartNo, user_id);
 	}
 	
