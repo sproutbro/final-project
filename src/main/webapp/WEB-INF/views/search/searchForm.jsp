@@ -6,9 +6,16 @@
 		<div class="back header1"><img src="resources/img/icon/back.png"></div>
 		<div class="main_address header2" >
 			<div class="search">
+			<form id="searchForm">
 				<img class="searchImg" src="resources/img/icon/search2.png">
-				<input type="text" placeholder="검색어를 입력해주세요"></input>
+				<input name="searchKey" type="text" placeholder="검색어를 입력해주세요"></input>
+			</form>
 			 </div>
 		</div>
 	</div>
+	<div class="searchList">
+	</div>
 </article>
+
+<!-- 섹시한 스크립트 -->
+<script src="resources/js/sexyboyScript.js"></script>
