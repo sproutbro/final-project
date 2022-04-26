@@ -30,7 +30,7 @@
 			</div>
 			<div class="storeLink flex">
 				<div><img src="resources/img/icon/phone.png"> 전화</div>|
-				<div> <img src="resources/img/icon/heart.png"> 찜</div>|
+				<div id="wishBtn" data-storeno="${storeNo}"> <img src="resources/img/icon/heart.png"> 찜</div>|
 				<div> <img src="resources/img/icon/share.png"> 공유</div>
 			</div>
 		</div>
@@ -111,4 +111,8 @@
 	
 	
 	</script>
+	
+	<!-- 섹시한 스크립트 -->
+	<script src="resources/js/sexyboyScript.js"></script>
+	
 </article>
