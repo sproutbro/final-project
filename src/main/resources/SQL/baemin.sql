@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `baemin`.`store` (
   `store_addr3` VARCHAR(45) NULL,
   `store_phone` VARCHAR(45) NULL,
   `store_reg_date` DATETIME NULL COMMENT '1 : 돈가스 회 일식\n2 : 중식\n3 : 치킨\n4 : 백반 죽 국수\n5 : 카페 디저트\n6 : 분식\n7 : 찜 탕 찌개\n8 : 피자\n9 : 양식\n10 : 고기 구이\n11 : 족발 보쌈\n12 : 아시안\n13 : 패스트푸드\n14 : 야식\n15 : 도시락',
-  `store_img` VARCHAR(45) NULL,
+  `store_img` VARCHAR(200) NULL,
   `store_open_time` DATETIME NULL,
   `store_close_time` DATETIME NULL,
   `store_deli_time_min` VARCHAR(45) NULL,
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `baemin`.`product` (
   `store_no` INT NOT NULL,
   `product_name` VARCHAR(45) NULL,
   `product_price` INT NOT NULL DEFAULT 0,
-  `product_img` VARCHAR(45) NULL,
+  `product_img` VARCHAR(200) NULL,
   `product_content` VARCHAR(1000) NULL,
   `product_isPopular` INT NULL DEFAULT 0 COMMENT '0: 일반메뉴\n1: 대표메뉴',
   `product_sal_num` INT NULL DEFAULT 0 COMMENT '판매량',
@@ -246,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `baemin`.`review` (
   `product_no` INT NOT NULL,
   `r_scope` DECIMAL(4,3) NULL,
   `r_reg_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `r_img` VARCHAR(45) NULL,
+  `r_img` VARCHAR(200) NULL,
   `r_content` VARCHAR(200) NULL,
   PRIMARY KEY (`r_no`),
   INDEX `fk_review_user1_idx` (`user_id` ASC) ,
@@ -310,6 +310,7 @@ DROP TABLE IF EXISTS `baemin`.`order0` ;
 CREATE TABLE IF NOT EXISTS `baemin`.`order0` (
   `odr_no` INT NOT NULL AUTO_INCREMENT,
   `user_id` VARCHAR(45) NOT NULL,
+  `cart_no` INT NOT NULL,
   `odr_addr1` VARCHAR(45) NOT NULL,
   `odr_addr2` VARCHAR(45) NOT NULL,
   `odr_addr3` VARCHAR(45) NOT NULL,
@@ -324,9 +325,15 @@ CREATE TABLE IF NOT EXISTS `baemin`.`order0` (
   `odr_status` INT NOT NULL DEFAULT 0 COMMENT '0 : 조리 중\n1 : 픽업 완료\n2 : 배달 완료',
   PRIMARY KEY (`odr_no`),
   INDEX `fk_order0_user1_idx` (`user_id` ASC),
+  INDEX `fk_order0_cart1_idx` (`cart_no` ASC),
   CONSTRAINT `fk_order0_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `baemin`.`user` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_order0_cart1`
+    FOREIGN KEY (`cart_no`)
+    REFERENCES `baemin`.`cart` (`cart_no`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -432,9 +439,16 @@ COMMIT;
 -- -----------------------------------------------------
 -- Data for table `baemin`.`product`
 -- -----------------------------------------------------
-START TRANSACTION;
 USE `baemin`;
 INSERT INTO `baemin`.`product` (`product_no`, `store_no`, `product_name`, `product_price`, `product_img`, `product_content`, `product_isPopular`, `product_sal_num`, `product_reg_date`) VALUES (DEFAULT, 2, '지지고볶고', 30000, NULL, '한번 잡숴봐~', 1, NULL, NULL);
+INSERT INTO `baemin`.`product` (`product_no`, `store_no`, `product_name`, `product_price`, `product_img`, `product_content`, `product_isPopular`, `product_sal_num`, `product_reg_date`) VALUES (DEFAULT, 1, '1234', 1234, NULL, '1234', 0, NULL, NULL);
+INSERT INTO `baemin`.`product` (`product_no`, `store_no`, `product_name`, `product_price`, `product_img`, `product_content`, `product_isPopular`, `product_sal_num`, `product_reg_date`) VALUES (DEFAULT, 1, '4321', 4321, NULL, '4321', 0, NULL, NULL);
+INSERT INTO `baemin`.`product` (`product_no`, `store_no`, `product_name`, `product_price`, `product_img`, `product_content`, `product_isPopular`, `product_sal_num`, `product_reg_date`) VALUES (DEFAULT, 1, '2222', 2222, NULL, '2222', 1, NULL, NULL);
+INSERT INTO `baemin`.`product` (`product_no`, `store_no`, `product_name`, `product_price`, `product_img`, `product_content`, `product_isPopular`, `product_sal_num`, `product_reg_date`) VALUES (DEFAULT, 1, '3333', 3333, NULL, '3333', 1, NULL, NULL);
+INSERT INTO `baemin`.`product` (`product_no`, `store_no`, `product_name`, `product_price`, `product_img`, `product_content`, `product_isPopular`, `product_sal_num`, `product_reg_date`) VALUES (DEFAULT, 2, '1212', 1212, NULL, '1212', 0, NULL, NULL);
+INSERT INTO `baemin`.`product` (`product_no`, `store_no`, `product_name`, `product_price`, `product_img`, `product_content`, `product_isPopular`, `product_sal_num`, `product_reg_date`) VALUES (DEFAULT, 2, '2121', 2121, NULL, '2121', 1, NULL, NULL);
+INSERT INTO `baemin`.`product` (`product_no`, `store_no`, `product_name`, `product_price`, `product_img`, `product_content`, `product_isPopular`, `product_sal_num`, `product_reg_date`) VALUES (DEFAULT, 2, '5151', 5151, NULL, '5151', 0, NULL, NULL);
 
 COMMIT;
+
 
