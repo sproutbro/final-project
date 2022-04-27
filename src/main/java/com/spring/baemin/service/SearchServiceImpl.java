@@ -19,4 +19,14 @@ public class SearchServiceImpl implements SearchService {
 		return searchDao.storeSearch(searchKey);
 	}
 
+	@Override
+	public void insertSearchKey(String user_id, String searchKey) {
+		searchDao.insertSearchKey(user_id, searchKey);
+	}
+
+	@Override
+	public List<String> recentSearches(String user_id) {
+		return searchDao.recentSearches(user_id);
+	}
+
 }
