@@ -4,6 +4,7 @@
 .project
 .settings/
 .springBeans
+bin/
 
 # Intellij
 .idea/
