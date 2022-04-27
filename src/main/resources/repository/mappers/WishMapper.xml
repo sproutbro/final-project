@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.spring.baemin.mapper.WishMapper">
+	
+	<insert id="wishInsert">
+		INSERT INTO wish (user_id, store_no) VALUES(#{user_id}, #{store_no})
+	</insert>
+	
+	<select id="wishCheck" resultType="int">
+		SELECT COUNT(*) FROM wish WHERE store_no = #{store_no} AND user_id = #{user_id}
+	</select>
+	
+	<delete id="wishDelete">
+		DELETE FROM wish WHERE STORE_no = #{store_no} AND user_id = #{user_id}
+	</delete>
+	
+	<select id="wishCount" resultType="int">
+		SELECT COUNT(*) FROM wish WHERE store_no = #{store_no}
+	</select>
+	
+</mapper>

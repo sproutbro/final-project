@@ -6,21 +6,21 @@
 "https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>    
 <article>
 
-<form action="comInsertProcess" method="post">
+<form action="comInsertProcess" id="companyInsertProcess" method="post">
 	<div>
-		아이디 : <input type="text" name="comId" placeholder="아이디를입력해주세요">
+		아이디 : <input type="text" id ="comId"name="comId" placeholder="아이디를입력해주세요">
 	</div>
 	<div>
-		비밀번호 : <input type="text" name="comPass" placeholder="비밀번호를입력해주세요">
+		비밀번호 : <input type="text" id="comPass" name="comPass" placeholder="비밀번호를입력해주세요">
 	</div>
 	<div>
-		대표자명 : <input type="text" name="comName" placeholder="대표자명을입력해주세요">
+		대표자명 : <input type="text" id="comName" name="comName" placeholder="대표자명을입력해주세요">
 	</div>
 	<div>
-		회사명 : <input type="text" name="comCeoName" placeholder="회사명을입력해주세요">
+		회사명 : <input type="text" id="comCeoName" name="comCeoName" placeholder="회사명을입력해주세요">
 	</div>
 	<div>
-		휴대폰 번호: <input type="text" name="comPhone1" size="4" maxlength="3">- <input type="text" name="comPhone2" size="4" maxlength="4">-<input type="text" name="comPhone3" size="4" maxlength="4">
+		휴대폰 번호: <input type="text" id="comPhone1" name="comPhone1" size="4" maxlength="3">- <input type="text" id="comPhone2" name="comPhone2" size="4" maxlength="4">-<input type="text" id="comPhone3" name="comPhone3" size="4" maxlength="4">
 	</div>
 	<div>
 		지번 : <input type="text" id="addr1"name="comAddr1">
@@ -35,10 +35,10 @@
 		 <input type="button" id="storeAddrBtn" value="우편번호찾기"/>
 	</div>
 	<div>
-		라이센스 : <input type="text" name="comLicense" placeholder="사업자번호를입력해주세요">
+		라이센스 : <input type="text" id="comLicense" name="comLicense" placeholder="사업자번호를입력해주세요">
 	</div>
 	<div>
-		이메일 : <input type="text" name="comEmail">@<input type="text" id="domain" name="domain">
+		이메일 : <input type="text" id="comEmail" name="comEmail">@<input type="text" id="domain" name="domain">
 		<select name="selectDomain" id="selectDomain">
 					<option>직접입력</option>
 					<option>네이버</option>

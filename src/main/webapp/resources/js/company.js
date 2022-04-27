@@ -28,15 +28,86 @@ $(function(){
 			 $("#companydeleteProcess").submit();
 		}else{
 			alert('취소합니다.');
-		}
-		
+		}	
+	});
+	
+	$("#companyInsertProcess").on("submit", function(){
+		return insertFormCheck();
 	});
 	
 	$("#companyUpdateForm").on("submit", function(e){
 
 		return joinFormCheck();
 	});
+
+
+function insertFormCheck(){
+	let id = $("#comId").val();
+	let pass = $("#comPass").val();
+	let name = $("#comName").val();
+	let ceoName = $("#comCeoName").val();
+	let phone1 = $("#comPhone1").val();
+	let phone2 = $("#comPhone2").val();
+	let phone3 = $("#comPhone3").val();
+	let addr1 = $("#addr1").val();
+	let addr2 = $("#addr2").val();
+	let license = $("#comLicense").val();
+	let email = $("#comEmail").val();
+	let domain = $("#domain").val();
 	
+	if(id.length == 0){
+	 	alert("아이디가 입력되지 않았습니다.\n아이디를 입력해주세요");
+	 	return false;
+	}
+	if(pass.length == 0){
+	 	alert("비밀번호가 입력되지 않았습니다.\n비밀번호를 입력해주세요");
+	 	return false;
+	}
+	if(name.length == 0){
+	 	alert("대표자 이름이 입력되지 않았습니다.\n대표자 이름을 입력해주세요");
+	 	return false;
+	}
+	if(ceoName.length == 0){
+	 	alert("회사명이 입력되지 않았습니다.\n회사명을 입력해주세요");
+	 	return false;
+	}
+	if(phone1.length == 0){
+	 	alert("휴대폰번호가 입력되지 않았습니다.\n휴대폰번호를 입력해주세요");
+	 	return false;
+	}
+	if(phone2.length == 0){
+	 	alert("휴대폰번호가 입력되지 않았습니다.\n휴대폰번호를 입력해주세요");
+	 	return false;
+	}
+	if(phne3.length == 0){
+	 	alert("휴대폰번호가 입력되지 않았습니다.\n휴대폰번호를 입력해주세요");
+	 	return false;
+	}
+	if(addr1.length == 0){
+	 	alert("주소가 입력되지 않았습니다.\n주소를 입력해주세요");
+	 	return false;
+	}
+	if(addr2.length == 0){
+	 	alert("주소가 입력되지 않았습니다.\n주소를 입력해주세요");
+	 	return false;
+	}
+	if(license.length == 0){
+	 	alert("라이센스가 입력되지 않았습니다.\n라이센스를 입력해주세요");
+	 	return false;
+	}
+	if(email.length == 0){
+	 	alert("이메일이 입력되지 않았습니다.\n이메일을 입력해주세요");
+	 	return false;
+	}
+	if(domain.length == 0){
+	 	alert("도메인이 입력되지 않았습니다.\n도메인을 입력해주세요");
+	 	return false;
+	}
+	
+	
+	
+}
+
 function joinFormCheck(){
 	let id = $("#comId").val();
 	let pass = $("#comPass").val();

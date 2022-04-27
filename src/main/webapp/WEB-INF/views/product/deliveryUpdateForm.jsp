@@ -8,14 +8,18 @@
 		<div class="header3" >&nbsp;</div>
 	</div>
 	
-	<form id="checkForm"action="deliveryUpdateProcess">
+	<form id="deliveryUpdateProcess" action="deliveryUpdateProcess">
 	<input type="hidden" name="storeNo" value="${storeNo}">
 	<input type="hidden" id="deliNo" name="deliNo" value="${deliNo }">
-		지역 : <input type="text" name="deliArea"><br>
-		가격 : <input type="text" name="deliPrice"><br>
+		지역 : <input type="text" id="deliArea" name="deliArea"><br>
+		가격 : <input type="text" id="deliPrice" name="deliPrice"><br>
 		<button type="submit">상품 등록</button>	
-		<input type="button" id="deliveryDelete" value="삭제하기">
+		
 		
 	</form>
-	
+	<form id="deliveryDeleteForm">
+	<input type="hidden" name="storeNo" value="${storeNo}">
+	<input type="hidden" id="deliNo" name="deliNo" value="${deliNo }">
+	<input type="button" id="deliveryDelete" value="삭제하기">
+	</form>
 </article>
