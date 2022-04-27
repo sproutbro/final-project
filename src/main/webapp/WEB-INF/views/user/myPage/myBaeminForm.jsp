@@ -8,12 +8,37 @@
 		<div class="header3" >&nbsp;</div>
 	</div>
 	
-	<div id="loginForm" class="">
-		<img src="#">
-		<a href="userLoginForm">로그인해주세요</a>
-		<span>&gt;</span>
+	<div class="space"></div>
+	<c:if test="${not sessionScope.isLogin}">
+	<div class="loginInfo flex1">
+		<div class="storeImg flex">
+			<img src="resources/img/icon/myPage/profile.png">
+		</div>
+		<a href="userLoginForm" class="loginText">로그인해주세요</a>
+		<div>
+			<img src="resources/img/icon/myPage/insert.png" class="insertImg">
+		</div>
 	</div>
-	<br><br><br><br><br><br><br>
+	</c:if>
+	
+	<c:if test="${sessionScope.isLogin}">
+	<div class="loginInfo flex1">
+		<div class="storeImg flex">
+			<img src="resources/img/icon/myPage/profile.png">
+		</div>
+		<a href="userLoginForm" class="loginText">고마운분, ${sessionScope.user_id }</a>
+		<div>
+			<img src="resources/img/icon/myPage/insert.png" class="insertImg">
+		</div>
+	</div>
+	
+	<div class="mypage-thank flex1">
+		<img src="resources/img/icon/myPage/thank.png">
+		<span>등급별 혜택</span>
+	</div>
+	</c:if>
+	
+	<br>
 	<div class="myPage-category flex-wrap">
 		<a href="userPointForm"><img src="resources/img/icon/myPage/point.png"><br>포인트</a>
 		<a href="userCouponForm"><img src="resources/img/icon/myPage/coupon.png"><br>쿠폰함</a>
@@ -22,4 +47,8 @@
 		<a href="userOrderForm"><img src="resources/img/icon/myPage/orderList.png"><br>주문내역</a>
 		<a href="userReviewForm"><img src="resources/img/icon/myPage/review.png"><br>리뷰관리</a>
 	</div>
+	<br><br><br><br>
+	<br><br><br><br>
+	<br><br><br><br>
+	<br><br><br><br>
 </article>

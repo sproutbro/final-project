@@ -6,8 +6,10 @@ $(function(){
 		setTimeout(function(){
 			$(this).css("background-color", "RGB(121, 186, 190)");
 		}, 7);
-		
 	});
+	
+	 
+	
 	
 	// + 버튼 클릭시 
 	$(".cartCntAdd").click(function(){

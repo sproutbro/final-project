@@ -82,10 +82,7 @@ article{
 .main-category > *{
 	flex: 20%;
 }
-.myPage-category > *{
-	flex: 30%;
-	border: 1px solid #eaeaea;
-}
+
 .main_footer{
 	display: flex;
 	flex-wrap: wrap;
@@ -114,3 +111,4 @@ article{
 .bold{
 	font-weight: bold;
 }
+

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <article>
 	<div class="header">
-		<div class="header1"><img src="resources/img/icon/main/back.png"></div>
+		<div class="header1">&nbsp;</div>
 		<div class="main_address header2" >주소</div>
 		<div class="header3" >&nbsp;</div>
 	</div>
