@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <article>
-	<form action="storeInsert">
+	<form action="storeInsert" enctype="multipart/form-data" method="post">
 		<input type="hidden" name="comId" value="${sessionScope.comId}" />		
 		
 		회사명 : ${sessionScope.comId }<br>
@@ -39,7 +39,7 @@
 		<input type="text" name="phone1"> - 
 		<input type="text" name="phone2"> - 
 		<input type="text" name="phone3"><br/>
-		
+		파일<input type="file" name="storeImage" size="70" maxlength="50">
 		<button type="submit">입점 신청</button>
 	</form>
 

@@ -15,7 +15,7 @@
 		values (
 			#{comId}, #{storeName}, #{mainCat}, 
 			#{storeAddr1}, #{storeAddr2},#{storeAddr3}, 
-			#{storePhone}, null, null, 
+			#{storePhone}, null, #{storeImg}, 
 			null, null, null, null, null
 			);
 	</insert>

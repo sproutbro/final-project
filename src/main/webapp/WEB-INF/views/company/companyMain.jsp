@@ -11,7 +11,7 @@
 	<a href="storeDetailForm?storeNo=${s.storeNo}">
 	<div class="storeList">
 		<div class="storeImg">
-			<img src="${s.storeImg }">
+			<img src="./resources/upload/${s.storeImg}">
 		</div>
 		<div class="storeContent">
 			<div class="storeName-min">${s.storeName }</div>
