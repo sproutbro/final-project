@@ -1,11 +1,14 @@
 package com.spring.baemin.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.spring.baemin.domain.Store;
 
 @Repository
 public class WishDaoImpl implements WishDao {
@@ -40,6 +43,11 @@ public class WishDaoImpl implements WishDao {
 	@Override
 	public int wishCount(Long store_no) {
 		return sqlSession.selectOne(NAME_SPACE + ".wishCount", store_no);
+	}
+
+	@Override
+	public List<Store> wishList(String user_id) {
+		return sqlSession.selectList(NAME_SPACE + ".wishList", user_id);
 	}
 
 }
