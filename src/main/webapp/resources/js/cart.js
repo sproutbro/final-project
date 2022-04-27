@@ -44,26 +44,27 @@ $(function(){
 		
 		var pStoreNo = Number($("#pStoreNo").val());
 		var cStoreNo = Number($("#cStoreNo").val());
+		var totalCnt = Number($(".cartCnt").attr("data-totalCnt"));
+		var totalAmt = Number($(".detail-footer-cartBtn>span:last-child").attr("data-totalAmt"));
+		var productNo = $("#productNo").val();	
 		
 		if(cStoreNo != pStoreNo && cStoreNo != 0) {
-			if (!confirm("장바구니에는 같은 가게의 메뉴만 담을 수 있습니다. \n 선택하신 메뉴를 장바구니에 담을 경우 이전에 담은 메뉴가 삭제됩니다.")) {
+			if (!confirm(" 장바구니에는 같은 가게의 메뉴만 담을 수 있습니다. \n 선택하신 메뉴를 장바구니에 담을 경우 이전에 담은 메뉴가 삭제됩니다.")) {
 				return false;
 		    } else {
 		    	$.ajax({
 		    		type: "POST",
-		    		url: "cartDelete.ajax",
+		    		url: "cartDelete.ajax?cartCnt=" + totalCnt,
 		    		success: function(){
 		    			alert("연결 성공");
+		    			$("#cStoreNo").val(pStoreNo);
 		    		},
 		    		error: function(){
 		    			alert("연결 실패");
 		    		}
 		    	});
 		    }
-		}
-		var totalCnt = $(".cartCnt").attr("data-totalCnt");
-		var totalAmt = $(".detail-footer-cartBtn>span:last-child").attr("data-totalAmt");
-		var productNo = $("#productNo").val();		
+		}	
 		
 		$("#totalCnt").attr("value", totalCnt);
 		$("#totalAmt").attr("value", totalAmt);

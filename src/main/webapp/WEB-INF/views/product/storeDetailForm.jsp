@@ -96,7 +96,7 @@
 	
 	<c:forEach var="p" items="${pList }" >
 	<c:if test="${p.productIsPopular eq 0 }">
-	<a href="productDetailForm?productNo=${p.productNo }">
+	<a href="productDetailForm?storeNo=${storeNo }&productNo=${p.productNo }">
 	<div class="storeDetail">
 		<div>
 			<div class="storeName-min">${p.productName }</div>   

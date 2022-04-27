@@ -32,6 +32,27 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Map<String, Object> userLoginProcess(String user_pass, String user_id) {
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		int cartCnt = 0;
 		int productNo = 0;
 		int storeNo = 0;
@@ -45,6 +66,7 @@ public class UserServiceImpl implements UserService {
 			map.put("user_id", user_id);
 			// 로그인 성공 시 카트 DAO 호출
 			cartCnt = cartDao.cartCnt(user_id);
+			System.out.println(cartCnt);
 			if(cartCnt != 0) {
 				cartList = cartDao.getCartList(user_id);
 				productNo = cartList.get(0).getProductNo();
@@ -54,7 +76,7 @@ public class UserServiceImpl implements UserService {
 				
 			} 
 		}		
-		
+		System.out.println(storeNo);
 		map.put("isLogin", isLogin);
 		map.put("cartCnt", cartCnt);  
 		map.put("productNo", productNo);
