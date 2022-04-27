@@ -8,6 +8,14 @@
 		SELECT * FROM store WHERE store_name LIKE CONCAT('%',#{searchKey},'%')
 	</select>
 	
+	<insert id="insertSearchKey">
+		INSERT INTO search (user_id, search_keyword, search_reg_date) VALUES (#{user_id}, #{searchKey}, NOW()); 
+	</insert>
+	
+	<select id="recentSearches" resultType="String">
+		SELECT search_keyword FROM search WHERE user_id = #{user_id} ORDER BY search_reg_date DESC;
+	</select>
+	
 	<resultMap id="resultMap" type="Store">
 		<id property="storeNo" column="store_no" />
 		<result property="comId" column="com_id" />

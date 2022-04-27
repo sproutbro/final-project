@@ -33,9 +33,6 @@
 	<view-controller path="/loginForm" view-name="user/myPage/user/userLoginForm"/>
 	<view-controller path="/joinForm" view-name="user/myPage/user/userJoinForm"/>
 	
-	<!-- store & product -->
-	<view-controller path="/searchForm" view-name="search/searchForm"/>
-	
 	<!-- company -->
 	<view-controller path="/companyLoginForm" view-name="company/companyLoginForm"/>
 	<view-controller path="/storeInsertForm" view-name="store/storeInsertForm"/>

@@ -1,6 +1,8 @@
 package com.spring.baemin.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,19 @@ public class SearchDaoImpl implements SearchDao {
 	@Override
 	public List<Store> storeSearch(String searchKey) {
 		return sqlSession.selectList(NAME_SPACE + ".storeSearch", searchKey);
+	}
+
+	@Override
+	public void insertSearchKey(String user_id, String searchKey) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("searchKey", searchKey);
+		sqlSession.insert(NAME_SPACE + ".insertSearchKey", map);
+	}
+
+	@Override
+	public List<String> recentSearches(String user_id) {
+		return sqlSession.selectList(NAME_SPACE + ".recentSearches", user_id);
 	}
 
 }
