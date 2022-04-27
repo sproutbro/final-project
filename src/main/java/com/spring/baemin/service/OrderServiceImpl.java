@@ -1,6 +1,7 @@
 package com.spring.baemin.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,6 @@ public class OrderServiceImpl implements OrderService {
 		return user;
 	}
 
-
 	@Override
 	public Map<String, Object> odrInsert(Map<String, Object> odrMap) {
 		
@@ -61,6 +61,11 @@ public class OrderServiceImpl implements OrderService {
 		
 		modelMap.put("oStore", oStore);
 		return null;
+	}
+
+	@Override
+	public List<Order> getOrderList(String user_id) {
+		return odrDao.getOrderList(user_id);
 	}
 
 

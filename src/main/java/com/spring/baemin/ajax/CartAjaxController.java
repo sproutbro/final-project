@@ -35,10 +35,17 @@ public class CartAjaxController {
 	
 	@RequestMapping("cartDelete.ajax")
 	@ResponseBody
-	public void cartDelete(HttpSession session) {
+	public void cartDelete(HttpSession session, int cartCnt) {
 		String user_id = (String) session.getAttribute("user_id");
+		int storeNo = (int) session.getAttribute("storeNo");
 		int cartNo = 0;
+		
 		cartService.cartDelete(cartNo, user_id);
+		session.removeAttribute("storeNo");
+		session.removeAttribute("cartCnt");
+		session.setAttribute("storeNo", storeNo);
+		session.setAttribute("cartCnt", cartCnt);
+		
 	}
 	
 }

@@ -9,7 +9,7 @@
 			<div class="header3" ><a href="#">수정</a></div>
 		</c:if>
 		<c:if test="${not isCompany }">
-			<div class="header3" ><a href="#"><img class="searchImg" src="resources/img/icon/share.png"></a></div>
+			<div class="header3" ><a href="#"><img class="searchImg" src="resources/img/icon/store/share.png"></a></div>
 		</c:if>
 	</div>
 	
