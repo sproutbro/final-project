@@ -17,7 +17,7 @@
 	
 	<div>
 		<div class="mainImg">
-			<img src="#">
+			<img src="./resources/upload/${store.storeImg}">
 		</div>
 		<div class="storeHeader">
 			<div>
