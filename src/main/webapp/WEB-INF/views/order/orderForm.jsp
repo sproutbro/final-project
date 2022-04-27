@@ -12,7 +12,7 @@
 	</div>
 	
 	
-	<form action="odrInsert" method="post" id="odrForm">
+	<form action="odrForm" method="post" id="odrForm">
 	
 	
 		<div class="odrbox">

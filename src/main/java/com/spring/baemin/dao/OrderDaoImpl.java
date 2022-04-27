@@ -1,5 +1,7 @@
 package com.spring.baemin.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,7 +19,18 @@ public class OrderDaoImpl implements OrderDao{
 		sqlSession.insert(NAME_SPACE + ".odrInsert", odr);
 	}
 
+	@Override
+	public List<Order> getOrderList(String user_id) {
+		return sqlSession.selectList(NAME_SPACE + ".odrList", user_id);
+	}
 
+	
+	
+	
+	
+	
+	
+	
 //	@Override
 //	public void odrDelete(int odrNo) {
 //		sqlSession.selectOne(NAME_SPACE + ".odrDelete", odrNo);

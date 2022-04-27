@@ -135,7 +135,7 @@ $(function(){
 	})
 		
 	// Order Form 전송
-	$("#odrInsert").click(function(){
+	$("#odrForm").click(function(){
 		// 핸드폰 번호 세팅
 		var odrPhone = $("#orderUserPhone").text();
 		$("#odrPhone").val(odrPhone);

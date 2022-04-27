@@ -11,7 +11,12 @@
 		VALUES 
 		(#{user_id}, #{odrAddr1}, #{odrAddr2}, #{odrAddr3}, #{odrPhone}, #{odrIsDis}, #{odrCeoMsg}, #{odrRiderMsg}, #{odrPay}, NULL, #{odrTotalAmt}, now(), DEFAULT)
 	</insert>
-
+	
+	<select id="odrList" parameterType="String" resultMap="orderResultMap">
+		SELECT * FROM order0 WHERE user_id = #{user_id}
+	</select>
+	
+	
 	
 	<resultMap id="orderResultMap" type="Order">
 		<id property="odrNo" column="odr_no" />

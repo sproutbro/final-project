@@ -24,7 +24,6 @@
 	
 	<!-- My배민 Page -->
 	<view-controller path="/myBaemin" view-name="user/myPage/myBaeminForm"/>
-	<view-controller path="/userOrderForm" view-name="user/myPage/userOrderListForm"/>
 	<view-controller path="/userWishForm" view-name="user/myPage/userWishListForm"/>
 	<view-controller path="/userCouponForm" view-name="user/myPage/userCouponForm"/>
 	<view-controller path="/userPointForm" view-name="user/myPage/userPointForm"/>
