@@ -24,6 +24,10 @@
 		SELECT * FROM store, wish WHERE store.store_no = wish.store_no AND user_id = #{user_id};
 	</select>
 	
+	<select id="wishPopularList" resultType="Map">
+		SELECT s.*, COUNT(w.store_no) AS wish_count FROM store AS s LEFT JOIN wish AS w ON s.store_no = w.store_no WHERE s.main_cat = #{catNo} GROUP BY s.store_no HAVING COUNT(*) ORDER BY wish_count DESC;
+	</select>
+	
 	<resultMap id="resultMap" type="Store">
 		<id property="storeNo" column="store_no" />
 		<result property="comId" column="com_id" />

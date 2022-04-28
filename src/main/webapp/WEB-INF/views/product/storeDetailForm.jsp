@@ -112,8 +112,5 @@
 	
 	
 	<jsp:include page="../../template/cartBtnForm.jsp" />
-	
-	<!-- 섹시한 스크립트 -->
-	<script src="resources/js/sexyboyScript.js"></script>
-	
+		
 </article>

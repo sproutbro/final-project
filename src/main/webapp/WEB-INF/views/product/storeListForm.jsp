@@ -14,7 +14,7 @@
 		<a href="#">주문 많은 순</a> | 
 		<a href="#">별점 높은 순</a> | 
 		<a href="#">가까운 순</a> | 
-		<a href="#">찜 많은 순</a> | 
+		<a href="#" id="getWishListBtn" data-cat="${ sList[0].mainCat }">찜 많은 순</a> | 
 		<a href="#">최소주문금&nabla;</a> | 
 		<a href="#">배달 빠른 순</a> | 
 		<a href="#">배달 빠른 순</a> | 
@@ -25,6 +25,7 @@
 	</div>
 	
 	<!-- storeList start -->
+	<div class="storeListBox">
 	<c:forEach var="s" items="${sList }">
 	<a href="storeDetailForm?storeNo=${s.storeNo }">
 	<div class="storeList">
@@ -50,6 +51,7 @@
 	</a>
 	
 	</c:forEach>
+	</div>
 	<!-- storeList end -->
 	<c:if test="${sessionScope.cartCnt > 0}">
 	<jsp:include page="../../template/cartBtnForm.jsp" />

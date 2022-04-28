@@ -21,6 +21,3 @@
 	<div class="searchList"></div>
 	
 </article>
-
-<!-- 섹시한 스크립트 -->
-<script src="resources/js/sexyboyScript.js"></script>

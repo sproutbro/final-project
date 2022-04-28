@@ -10,4 +10,6 @@ public interface WishService {
 	int wishCount(Long store_no);
 
 	List<Store> wishList(String user_id);
+
+	List<Object> wishPopularList(int catNo);
 }
