@@ -16,6 +16,16 @@
 		SELECT * FROM order0 WHERE user_id = #{user_id}
 	</select>
 	
+	<select id="getOdrNo" resultType="int">
+		SELECT odr_no FROM order0 ORDER BY odr_no DESC LIMIT 1
+	</select>
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	<resultMap id="orderResultMap" type="Order">

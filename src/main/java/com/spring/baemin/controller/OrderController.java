@@ -1,8 +1,6 @@
 package com.spring.baemin.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.baemin.domain.Order;
 import com.spring.baemin.domain.User;
@@ -38,22 +35,23 @@ public class OrderController {
 		String user_id = (String) session.getAttribute("user_id");
 		odr.setUser_id(user_id);
 		
-		Map<String, Object> odrMap = new HashMap<String, Object>();
-		odrMap.put("odr", odr);
-		odrMap.put("user_id", user_id);
+		orderService.odrInsert(odr);
 		
-		orderService.odrInsert(odrMap);
-		System.out.println("asdfasd");
 		return "redirect:/odrListForm";   
 	}
 	@RequestMapping("odrListForm")
-	public String orderList(HttpSession session ) {
+	public String orderList(HttpSession session, Model model) {
 		
 		String user_id = (String) session.getAttribute("user_in");
 		
 		List<Order> oList = orderService.getOrderList(user_id);
 		
-		System.out.println("1342");
+		for(int i = 0; i < oList.size(); i++) {
+			System.out.println(oList.get(i).getOdrRegDate());
+			System.out.println(oList.get(i).getOdrStatus());
+			System.out.println(oList.get(i).getOdrNo());
+		}
+		
 		return "user/myPage/userOrderListForm";
 	}
 }

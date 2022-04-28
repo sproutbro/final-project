@@ -15,8 +15,11 @@ public class OrderDaoImpl implements OrderDao{
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public void odrInsert(Order odr) {
+	public int odrInsert(Order odr) {
+		// odr insert
 		sqlSession.insert(NAME_SPACE + ".odrInsert", odr);
+		// odr insert 후 odrNo 반환 
+		return sqlSession.selectOne(NAME_SPACE + ".getOdrNo");
 	}
 
 	@Override

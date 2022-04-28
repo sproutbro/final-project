@@ -9,5 +9,25 @@
 	</div>
 	
 	
+	<div>
+		<div class="space">&nbsp;</div>
+		<div class="flex1">
+			<span>04/17/ (일) - 배달완료</span>
+			<span>
+				<a href="#" class="odrDetailBtn">주문상세</a>&emsp;
+				<a href="#"><img class="orderList-img" src="resources/img/icon/menu.png" /></a>
+			</span>
+		</div>
+		<a href="#">
+		<div class="storeList">
+			<div class="storeImg"><img src="#"></div>
+			<div class="storeContent">
+				<p class="storeName-min">전가복 ></p>
+				<p>탕수육정식 1개 11000원</p>
+			</div>
+		</div>
+		</a>
+	</div>
+	
 	
 </article>

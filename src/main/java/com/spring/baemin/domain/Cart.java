@@ -1,15 +1,16 @@
 package com.spring.baemin.domain;
 
 public class Cart {
-	private int cartNo, productNo, cartCnt, cartAmt;
+	private int cartNo, productNo, cartCnt, cartAmt, cartIsCheck;
 	private String user_id;
 	
 	public Cart() {}
-	public Cart(int cartNo, int productNo, int cartCnt, int cartAmt, String user_id) {
+	public Cart(int cartNo, int productNo, int cartCnt, int cartAmt, String user_id, int cartIsCheck) {
 		this.cartNo = cartNo;
 		this.productNo = productNo;
 		this.cartCnt = cartCnt;
 		this.cartAmt = cartAmt;
+		this.cartIsCheck = cartIsCheck;
 		this.user_id = user_id;				
 	}
 	
@@ -36,6 +37,12 @@ public class Cart {
 	}
 	public void setCartAmt(int cartAmt) {
 		this.cartAmt = cartAmt;
+	}
+	public int getCartIsCheck() {
+		return cartIsCheck;
+	}
+	public void setCartIsCheck(int cartIsCheck) {
+		this.cartIsCheck = cartIsCheck;
 	}
 	public String getUser_id() {
 		return user_id;

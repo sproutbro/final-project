@@ -23,7 +23,6 @@ public class CartDaoImpl implements CartDao {
 	
 	@Override
 	public void cartAdd(Cart cart, int result) {
-		
 		if(result == 0) {
 			sqlSession.insert(NAME_SPACE + ".cartInsert", cart);
 		} else {
@@ -48,6 +47,11 @@ public class CartDaoImpl implements CartDao {
 	@Override
 	public int cartCnt(String user_id) {
 		return sqlSession.selectOne(NAME_SPACE + ".cartCnt", user_id);
+	}
+
+	@Override
+	public void cartUpdate(String user_id) {
+		sqlSession.update(NAME_SPACE + ".cartIsPayCheck", user_id);
 	}
 
 
