@@ -1,6 +1,6 @@
 package com.spring.baemin.controller;
 
-import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -42,15 +42,11 @@ public class OrderController {
 	@RequestMapping("odrListForm")
 	public String orderList(HttpSession session, Model model) {
 		
-		String user_id = (String) session.getAttribute("user_in");
+		String user_id = (String) session.getAttribute("user_id");
 		
-		List<Order> oList = orderService.getOrderList(user_id);
+		Map<String, Object> odrListMap = orderService.getOrderList(user_id);
 		
-		for(int i = 0; i < oList.size(); i++) {
-			System.out.println(oList.get(i).getOdrRegDate());
-			System.out.println(oList.get(i).getOdrStatus());
-			System.out.println(oList.get(i).getOdrNo());
-		}
+		model.addAllAttributes(odrListMap);
 		
 		return "user/myPage/userOrderListForm";
 	}

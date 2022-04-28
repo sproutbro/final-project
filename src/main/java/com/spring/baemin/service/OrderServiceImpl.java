@@ -16,6 +16,7 @@ import com.spring.baemin.dao.StoreDao;
 import com.spring.baemin.dao.UserDao;
 import com.spring.baemin.domain.Cart;
 import com.spring.baemin.domain.Order;
+import com.spring.baemin.domain.Product;
 import com.spring.baemin.domain.Store;
 import com.spring.baemin.domain.User;
 
@@ -74,18 +75,42 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<Order> getOrderList(String user_id) {
+	public Map<String, Object> getOrderList(String user_id) {
 		
-		// odrList 호출
-		List<Order> oList = odrDao.getOrderList(user_id); 
+		// 폼 전송을 위한 List 생성
+		List<Order> oList = new ArrayList<Order>();
+		List<Cart> cList = new ArrayList<Cart>();
+		List<Product> pList = new ArrayList<Product>();
+		List<Store> sList = new ArrayList<Store>();
 		
+		// 유저별 주문 목록 요청
+		oList = odrDao.getOrderList(user_id);
 		
+		for(int i = 0; i < oList.size(); i++) {
+			
+			// 주문별 카트, 프로덕트 리스트 요청
+			int odrNo = oList.get(i).getOdrNo();
+			cList = odrDao.getCartList(odrNo);
+			pList = odrDao.getProductList(odrNo);
+			
+			// 주문리스트 2차원 배열 생성 
+			oList.get(i).setcList(cList);
+			oList.get(i).setpList(pList);
+			
+			// 주문별 상점 정보 요청
+			int storeNo = pList.get(0).getStoreNo();
+			Store s = storeDao.getStore(storeNo);
+			
+			// 주문별 상점 정보 입력
+			sList.add(s);
+		}
+
+		// 맵 생성 및 주문, 상정 목록 맵 전달
+		Map<String, Object> odrListMap = new HashMap<String, Object>();
+		odrListMap.put("oList", oList);
+		odrListMap.put("sList", sList);
 		
-		
-		return odrDao.getOrderList(user_id);
+		return odrListMap;
 	}
-
-
-
 
 }
