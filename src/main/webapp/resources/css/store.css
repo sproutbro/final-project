@@ -95,6 +95,7 @@
 .storeName-min{
 	font-weight: bold;
 	font-size: 18px;
+	margin-bottom: 5px;
 }
 .storeDetail{
 	display: flex;

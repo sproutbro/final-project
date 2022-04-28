@@ -13,20 +13,36 @@
 	</insert>
 	
 	<select id="odrList" parameterType="String" resultMap="orderResultMap">
-		SELECT * FROM order0 WHERE user_id = #{user_id}
+		SELECT * FROM order0 WHERE user_id = #{user_id} ORDER BY odr_no DESC
 	</select>
 	
 	<select id="getOdrNo" resultType="int">
 		SELECT odr_no FROM order0 ORDER BY odr_no DESC LIMIT 1
 	</select>
 	
+	<select id="getProductList" parameterType="int" resultType="Product">
+		SELECT 
+			p.product_no productNo, p.product_name productName, p.store_no storeNo
+		FROM 
+			(SELECT c.* 
+			FROM 
+				o_detail od 
+			INNER JOIN 
+				cart c
+			ON od.cart_no = c.cart_no 
+			WHERE odr_no = #{odrNo}) od_c
+		INNER JOIN 
+			product p 
+		ON od_c.product_no = p.product_no
+	</select>
 	
-	
-	
-	
-	
-	
-	
+	<select id="getCartList" parameterType="int" resultType="Cart">
+		SELECT c.* 
+		FROM o_detail od 
+		INNER JOIN cart c
+		ON od.cart_no = c.cart_no
+		WHERE od.odr_no = #{odrNo}
+	</select>
 	
 	<resultMap id="orderResultMap" type="Order">
 		<id property="odrNo" column="odr_no" />

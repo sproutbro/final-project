@@ -1,18 +1,24 @@
 package com.spring.baemin.domain;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Order {
 	private int odrNo, odrIsDis, odrTotalAmt, odrStatus, odrPay;
 	private String user_id, odrCp, odrAddr1, odrAddr2,odrAddr3, odrPhone, odrCeoMsg, odrRiderMsg;
+	private Timestamp odrRegDate;
+	
+	private List<Product> pList;
+	private List<Cart> cList;
 	
 	public Order() {}
-	public Order(int odrIsDis, int odrTotalAmt, int odrPay, String odrPhone,
+	public Order(int odrIsDis, int odrTotalAmt, int odrPay, String odrPhone, Timestamp odrRegDate,
 			String odrAddr1, String odrAddr2, String odrAddr3, String odrCeoMsg, String odrRiderMsg ) {
 		this.odrIsDis = odrIsDis;
 		this.odrTotalAmt = odrTotalAmt;
 		this.odrPay = odrPay;
 		this.odrPhone = odrPhone;
+		this.odrRegDate = odrRegDate;
 		this.odrAddr1 = odrAddr1;
 		this.odrAddr2 = odrAddr2;
 		this.odrAddr3 = odrAddr3;
@@ -51,7 +57,6 @@ public class Order {
 	public void setOdrRegDate(Timestamp odrRegDate) {
 		this.odrRegDate = odrRegDate;
 	}
-	private Timestamp odrRegDate;
 	public int getOdrNo() {
 		return odrNo;
 	}
@@ -113,8 +118,24 @@ public class Order {
 	public void setOdrRiderMsg(String odrRiderMsg) {
 		this.odrRiderMsg = odrRiderMsg;
 	}
+	public List<Product> getpList() {
+		return pList;
+	}
+	public void setpList(List<Product> pList) {
+		this.pList = pList;
+	}
+	public List<Cart> getcList() {
+		return cList;
+	}
+	public void setcList(List<Cart> cList) {
+		this.cList = cList;
+	}
 	
-	
-	
+	@Override
+	public String toString() {
+		return "odrNo : " + odrNo + ", odrIsDis : " + odrIsDis + ", odrTotalAmt : " + odrTotalAmt + 
+				", odrStatus : " + odrStatus + ", odrPhone : " + odrPhone + ", odrPay : " + odrIsDis + 
+				", odrAddr2 : " + odrAddr2 + ", pList : " + pList + ", cList : " + cList;
+	}
 	
 }
