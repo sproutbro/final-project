@@ -6,7 +6,7 @@ import com.spring.baemin.domain.Order;
 
 public interface OrderDao {
 	
-	public abstract void odrInsert(Order order);
+	public abstract int odrInsert(Order order);
 	
 	public abstract List<Order> getOrderList(String user_id);
 }

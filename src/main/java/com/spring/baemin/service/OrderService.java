@@ -8,7 +8,7 @@ import com.spring.baemin.domain.User;
 
 public interface OrderService {
 	public abstract User odrForm(String user_id);
-	public abstract Map<String, Object> odrInsert(Map<String, Object> odrMap);
+	public abstract Map<String, Object> odrInsert(Order odr);
 	public abstract List<Order> getOrderList(String user_id);	
 //	public abstract void odrDelete(int cartNo);
 }

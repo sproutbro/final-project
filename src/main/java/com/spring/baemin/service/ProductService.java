@@ -9,3 +9,4 @@ public interface ProductService {
 	public abstract Map<String, Object> getProductList(int storeNo);
 	public abstract Product getProduct(int productNo);
 }
+

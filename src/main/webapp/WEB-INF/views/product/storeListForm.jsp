@@ -28,9 +28,7 @@
 	<c:forEach var="s" items="${sList }">
 	<a href="storeDetailForm?storeNo=${s.storeNo }">
 	<div class="storeList">
-		<div class="storeImg">
-			<img src="${s.storeImg }">
-		</div>
+		<div class="storeImg"><img src="${s.storeImg }"></div>
 		<div class="storeContent">
 			<div class="storeName-min">${s.storeName }</div>
 			<div class="storeScope">

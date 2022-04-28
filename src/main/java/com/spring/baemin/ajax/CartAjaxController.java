@@ -20,7 +20,6 @@ public class CartAjaxController {
 	@ResponseBody
 	public void cartInsert(int productNo, int cartCnt, int cartAmt, 
 				HttpSession session) {
-		
 		String user_id = (String) session.getAttribute("user_id");
 		
 		Cart cart = new Cart();
