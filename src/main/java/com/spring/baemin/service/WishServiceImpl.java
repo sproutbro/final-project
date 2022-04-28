@@ -39,4 +39,9 @@ public class WishServiceImpl implements WishService {
 		return wishDao.wishList(user_id);
 	}
 
+	@Override
+	public List<Object> wishPopularList(int catNo) {
+		return wishDao.wishPopularList(catNo);
+	}
+
 }

@@ -50,4 +50,9 @@ public class WishDaoImpl implements WishDao {
 		return sqlSession.selectList(NAME_SPACE + ".wishList", user_id);
 	}
 
+	@Override
+	public List<Object> wishPopularList(int catNo) {		
+		return sqlSession.selectList(NAME_SPACE + ".wishPopularList", catNo);
+	}
+
 }

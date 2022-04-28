@@ -11,5 +11,6 @@ public interface WishDao {
 	void wishDelete(Long store_no, String user_id);
 	int wishCount(Long store_no);
 	List<Store> wishList(String user_id);
+	List<Object> wishPopularList(int catNo);
 	
 }

@@ -1,3 +1,5 @@
+$(() =>{
+	
 //wish
 let wishCount;
 
@@ -19,6 +21,47 @@ $("#wishBtn").click(e => {
 			alert("찜 삭제 ~~~~~~~~~~~~~")
 		}
 	})
+})
+
+let getWishListBtn = $("#getWishListBtn")
+getWishListBtn.click(e => {
+	let catNo = e.target.dataset.cat
+	$.post({
+		url: "wishList",
+		data: {catNo}
+	}).done(res => {
+		let storeListBox = $(".storeListBox")
+		storeListBox.html(null)
+		for(var i in res) {
+			storeListBox.append(
+
+				`<a href="storeDetailForm?storeNo=` + res[i].store_no + `">
+				<div class="storeList">
+					<div class="storeImg">
+					<img src="` + res[i].store_img + `">
+					</div>
+					<div class="storeContent">
+					<div class="storeName-min">${res[i].store_name} 찜(${res[i].wish_count})</div>
+					<div class="storeScope">
+					<span class="scopeSpan">0.0</span>
+					</div>
+					<div class="deliveryDiv">
+					<span class="deliverySpan">최소주문 6000원</span>
+					배달팁 
+					<span class="deliverySpan">0원 ~ 4000원</span>
+					</div>
+					<div class="deliveryTime">
+					<img src="#">
+					<span> 35~40분 </span>
+					</div>
+					</div>
+					</div>
+					</a>`
+			)
+		}
+	})
+	
+	
 })
 
 //search 
@@ -70,7 +113,6 @@ searchForm.submit(e => {
 	
 })
 
-
 function searchOption(recentSearches, popularSearch) {
 	$.post({
 		url: "recentSearches"
@@ -94,7 +136,6 @@ function searchOption(recentSearches, popularSearch) {
 		}
 	})
 }
-
 
 //
 $(() => {
@@ -120,4 +161,5 @@ $(() => {
 				searchOption(recentSearches, popularSearch)
 			}		
 	
+})
 })

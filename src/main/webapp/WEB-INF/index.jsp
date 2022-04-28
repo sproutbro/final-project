@@ -19,6 +19,8 @@
 
 <script src="resources/js/myPage.js"></script>
 <script src="resources/js/delivery.js"></script>
+<!-- 섹시한 스크립트 -->
+<script src="resources/js/sexyboyScript.js"></script>
 
 <!-- Modal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -39,5 +41,6 @@
 	</c:if>
 	<jsp:include page="${ param.body }" />
 	<%@ include file="template/footer.jsp"%>
+	
 </body>
 </html>

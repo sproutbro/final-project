@@ -35,8 +35,14 @@ public class WishController {
 	
 	@RequestMapping(value = "wishCount", method = RequestMethod.POST)
 	@ResponseBody
-	public int wishCount(@RequestParam Long store_no, HttpSession session) {
+	public int wishCount(@RequestParam Long store_no) {
 		return wishService.wishCount(store_no);
+	}
+	
+	@RequestMapping(value = "wishList", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Object> wishList(@RequestParam int catNo) {
+		return wishService.wishPopularList(catNo);
 	}
 	
 	@RequestMapping(value = "userWishForm", method = RequestMethod.GET)
