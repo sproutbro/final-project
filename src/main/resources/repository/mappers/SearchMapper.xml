@@ -9,11 +9,15 @@
 	</select>
 	
 	<insert id="insertSearchKey">
-		INSERT INTO search (user_id, search_keyword, search_reg_date) VALUES (#{user_id}, #{searchKey}, NOW()); 
+		INSERT INTO search (user_id, search_keyword, search_reg_date) VALUES (#{user_id}, #{searchKey}, NOW())
 	</insert>
 	
 	<select id="recentSearches" resultType="String">
-		SELECT search_keyword FROM search WHERE user_id = #{user_id} ORDER BY search_reg_date DESC;
+		SELECT search_keyword FROM search WHERE user_id = #{user_id} ORDER BY search_reg_date DESC LIMIT 5
+	</select>
+	
+	<select id="popularSearch" resultType="Map">
+		SELECT search_keyword, COUNT(*) AS count FROM search GROUP BY search_keyword HAVING COUNT(*) ORDER BY COUNT(*) DESC LIMIT 5
 	</select>
 	
 	<resultMap id="resultMap" type="Store">

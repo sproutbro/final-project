@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,24 +23,38 @@ public class SearchController {
 	@RequestMapping(value = "storeSearch", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Store> storeSearch(@RequestParam String searchKey, HttpSession session) {
-		String user_id = (String) session.getAttribute("user_id");
 		
-		if(user_id != null) {
+		String user_id = (String) session.getAttribute("user_id");
+		List<Store> storeSerchesList = searchService.storeSerch(searchKey);
+		
+		if(user_id != null && !storeSerchesList.isEmpty()) {
 			searchService.insertSearchKey(user_id, searchKey);
 		}
 		
-		return searchService.storeSerch(searchKey);
+		return storeSerchesList;
 	}
 	
 	@RequestMapping(value = "searchForm", method = RequestMethod.GET)
-	public String searchForm(HttpSession session, Model model) {
-		String user_id = (String) session.getAttribute("user_id");
-		
-		List<String> recentSearchesList = searchService.recentSearches(user_id);
-		
-		model.addAttribute("searchList", recentSearchesList);
-		
+	public String searchForm(HttpSession session) {
 		return "search/searchForm";
 	}
+	
+	@RequestMapping(value = "recentSearches", method = RequestMethod.POST)
+	@ResponseBody
+	public List<String> recentSearchesList(HttpSession session) {
+		String user_id = (String) session.getAttribute("user_id");
+		
+		if(user_id != null) {
+			return searchService.recentSearches(user_id);
+		} else {
+			return null;
+		}
+	} 
+	
+	@RequestMapping(value = "popularSearch", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Object> popularSearch(HttpSession session) {
+			return searchService.popularSearch();
+	} 
 	
 }
