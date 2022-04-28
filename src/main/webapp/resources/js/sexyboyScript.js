@@ -70,31 +70,6 @@ searchForm.submit(e => {
 	
 })
 
-//
-$(() => {
-	
-	//wish Count		
-	let store_no = $("#wishBtn").data("storeno")
-			
-	if(store_no) {
-		$.post({
-			url: "wishCount",
-			data: {store_no}
-		}).done(res => {
-			wishCount = res
-			$("#wishBtn").append("<span id='wishCount'>"+res+"</span>")
-		})
-	}
-	
-	//recentSearches
-	let recentSearches = $(".recentSearches")
-	let popularSearch = $(".popularSearch")
-	
-	if(recentSearches) {
-		searchOption(recentSearches, popularSearch)
-	}		
-	
-})
 
 function searchOption(recentSearches, popularSearch) {
 	$.post({
@@ -119,3 +94,30 @@ function searchOption(recentSearches, popularSearch) {
 		}
 	})
 }
+
+
+//
+$(() => {
+	
+	//wish Count		
+	let store_no = $("#wishBtn").data("storeno")
+			
+			if(store_no) {
+				$.post({
+					url: "wishCount",
+					data: {store_no}
+				}).done(res => {
+					wishCount = res
+							$("#wishBtn").append("<span id='wishCount'>"+res+"</span>")
+				})
+			}
+	
+	//recentSearches
+	let recentSearches = $(".recentSearches")
+			let popularSearch = $(".popularSearch")
+			
+			if(recentSearches) {
+				searchOption(recentSearches, popularSearch)
+			}		
+	
+})
