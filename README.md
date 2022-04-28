@@ -2,7 +2,7 @@
 
 ### Back End : Spirng
 ### Front End : JSP
-### Database : MySql
+### Database : MySql(Mybatis)
 ### 배포 : AWS
 
 http://13.209.50.139:8080/
