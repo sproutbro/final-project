@@ -27,7 +27,9 @@ let searchForm = $("#searchForm")
 searchForm.submit(e => {
 	e.preventDefault();
 	let searchKey = e.target.searchKey.value
-	
+	let recentSearches = $(".recentSearches")
+	let popularSearch = $(".popularSearch")
+			
 	$.post({
 		url: "storeSearch",
 		data: {searchKey}
@@ -60,11 +62,39 @@ searchForm.submit(e => {
 				</a>`
 			)
 		}
-
+		e.target.searchKey.value = ""
 		
+	}).done(() => {
+		searchOption(recentSearches, popularSearch)
 	})
 	
 })
+
+
+function searchOption(recentSearches, popularSearch) {
+	$.post({
+		url: "recentSearches"
+	}).done(res => {
+		if(res) {
+			recentSearches.html("최근 검색어 : ")
+			for(var i in res) {
+				recentSearches.append(res[i] + " ")
+			}
+		}
+	})
+	
+	$.post({
+		url: "popularSearch"
+	}).done(res => {
+		if(res) {
+			popularSearch.html("인기검색어 : ")
+			for(var i in res) {
+				popularSearch.append("<br/>" + res[i].search_keyword + "(" + res[i].count + ")")
+			}
+		}
+	})
+}
+
 
 //
 $(() => {
@@ -72,15 +102,22 @@ $(() => {
 	//wish Count		
 	let store_no = $("#wishBtn").data("storeno")
 			
-	if(store_no) {
-		$.post({
-			url: "wishCount",
-			data: {store_no}
-		}).done(res => {
-			wishCount = res
-			$("#wishBtn").append("<span id='wishCount'>"+res+"</span>")
-		})
-	}
+			if(store_no) {
+				$.post({
+					url: "wishCount",
+					data: {store_no}
+				}).done(res => {
+					wishCount = res
+							$("#wishBtn").append("<span id='wishCount'>"+res+"</span>")
+				})
+			}
 	
+	//recentSearches
+	let recentSearches = $(".recentSearches")
+			let popularSearch = $(".popularSearch")
+			
+			if(recentSearches) {
+				searchOption(recentSearches, popularSearch)
+			}		
 	
 })

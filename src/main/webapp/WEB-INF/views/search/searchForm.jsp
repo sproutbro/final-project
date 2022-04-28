@@ -13,14 +13,13 @@
 			 </div>
 		</div>
 	</div>
-	<div>
-		최근 검색어 : 
-		<c:forEach var="s" items="${searchList }">
-		${s}
-		</c:forEach>
-	</div>
-	<div class="searchList">
-	</div>
+	
+	<div class="recentSearches"></div>
+	
+	<div class="popularSearch"></div>
+	
+	<div class="searchList"></div>
+	
 </article>
 
 <!-- 섹시한 스크립트 -->

@@ -11,5 +11,7 @@ public interface SearchDao {
 	void insertSearchKey(String user_id, String searchKey);
 
 	List<String> recentSearches(String user_id);
+
+	List<Object> popularSearch();
 	
 }

@@ -29,4 +29,9 @@ public class SearchServiceImpl implements SearchService {
 		return searchDao.recentSearches(user_id);
 	}
 
+	@Override
+	public List<Object> popularSearch() {
+		return searchDao.popularSearch();
+	}
+
 }

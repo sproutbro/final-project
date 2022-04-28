@@ -36,4 +36,9 @@ public class SearchDaoImpl implements SearchDao {
 		return sqlSession.selectList(NAME_SPACE + ".recentSearches", user_id);
 	}
 
+	@Override
+	public List<Object> popularSearch() {
+		return sqlSession.selectList(NAME_SPACE + ".popularSearch");
+	}
+
 }
