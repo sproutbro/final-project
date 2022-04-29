@@ -169,4 +169,16 @@ $(function(){
 		
 	});
 		
+	$("#cartBtnForm").click(function(){
+		console.log("asdfjkla");
+		var isLigin = $(this).find("input").val();
+		
+		if(isLigin != 'true') {
+			if (!confirm("로그인후 이용 가능합니다. \n로그인 창으로 이동하시겠습니까?")) {
+				return false;
+			} else {
+				window.location.href="userLoginForm";
+			}
+		} 
+	})
 })

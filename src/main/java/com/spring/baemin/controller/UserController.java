@@ -73,6 +73,7 @@ public class UserController {
 			session.setAttribute("productNo", modelMap.get("productNo"));
 			session.setAttribute("storeNo", modelMap.get("storeNo"));
 			logger.info("{}로그인함.", user_id);
+	
 			return "redirect:/";
 		} else {
 			
