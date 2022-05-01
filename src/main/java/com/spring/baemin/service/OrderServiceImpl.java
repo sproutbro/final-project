@@ -62,7 +62,6 @@ public class OrderServiceImpl implements OrderService {
 		int productNo = cartDao.getCartList(user_id).get(0).getProductNo(); 
 		int storeNo = productDao.getProduct(productNo).getStoreNo();
 		
-		
 		// cartDelete
 		cartDao.cartUpdate(user_id);
 		

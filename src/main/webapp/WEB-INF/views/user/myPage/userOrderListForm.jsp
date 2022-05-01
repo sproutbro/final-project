@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <article>
 	<div class="header">
@@ -15,7 +15,8 @@
 		<div class="space">&nbsp;</div>
 		<div class="flex1">
 			<span>
-			<%-- 	<fmt:formatDate value="${oList.odrRegDate }" type="both" pattern="yyyy-MM-dd [E]"/> <br/> --%>
+			<%-- <fmt:formatDate value="${oList.odrRegDate }" type="both" pattern="yyyy-MM-dd"/> <br/> --%>
+			<fmt:formatDate value="${ oList.odrRegDate }" pattern="yyyy-MM-dd HH:mm:ss" />
 			 - 
 			 <c:if test="${o.odrStatus eq 0}"> 
 			 	조리 중
