@@ -18,7 +18,7 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 	
-	@RequestMapping("orderForm")
+	@RequestMapping("odrForm")
 	public String orderForm(HttpSession session, Model model, int totalAmt) {
 		
 		String user_id = (String) session.getAttribute("user_id");
@@ -28,7 +28,7 @@ public class OrderController {
 		return "order/orderForm";   
 	}
 	
-	@RequestMapping("odrForm")
+	@RequestMapping("odrProcess")
 	public String orderInsert(HttpSession session, Model model, 
 			Order odr) {
 		

@@ -49,7 +49,7 @@
 			<span data-totalAmt=${ totalAmt }>${totalAmt } 원</span>
 		</div>
 	</div>
-	<form action="orderForm" id="cartForm">
+	<form action="odrForm" id="cartForm">
 		<input type="hidden" id="cListCnt" value="${cListCnt }"/>
 		<input type="hidden" id="totalCnt" value="${totalCnt }">
 		<input type="hidden" id="totalAmt" name="totalAmt" value="${ totalAmt }">
