@@ -31,6 +31,26 @@ $(function(){
 		}	
 	});
 	
+	$("#emailCheck").click(function(){
+		$.post("emailCheck.ajax",function(resultData, status, xhr){
+			if(status == "success") {
+				console.log("이메일 보내짐");			
+			}
+		})	
+	});
+	
+	$("#emailCheck3").click(function(){
+		let emaliCheck = $("#emailCheck2").val();
+		
+		if(emaliCheck == "123456789") {
+			alert("인증에 성공하셨습니다.");
+			$("#emailCheck3").prop("disabled", true);
+			$("#emailCheck2").prop("readonly", true);
+		}else{
+			alert("인증에 실패하셨습니다.");
+		}
+		
+	})
 	$("#companyInsertProcess").on("submit", function(){
 		return insertFormCheck();
 	});
@@ -54,6 +74,12 @@ function insertFormCheck(){
 	let license = $("#comLicense").val();
 	let email = $("#comEmail").val();
 	let domain = $("#domain").val();
+	let emailCheck = $("#emailCheck2").val();
+	
+	if(! $("#emailCheck3").prop("disabled")) {
+		alert("이메일 인증을 확인해야 합니다.");
+		return false;
+	}
 	
 	if(id.length == 0){
 	 	alert("아이디가 입력되지 않았습니다.\n아이디를 입력해주세요");
@@ -103,7 +129,10 @@ function insertFormCheck(){
 	 	alert("도메인이 입력되지 않았습니다.\n도메인을 입력해주세요");
 	 	return false;
 	}
-	
+	if(emailCheck.length == 0){
+		alert("이메일 인증번호가 입력되지 않았습니다.");
+		return false;
+	}
 	
 	
 }

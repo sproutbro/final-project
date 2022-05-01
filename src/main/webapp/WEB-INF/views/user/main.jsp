@@ -31,6 +31,7 @@
 		<a href="storeListForm?mainCat=13"><img src="resources/img/icon/main/p.png"><br>패스트푸드</a> 
 		<a href="storeListForm?mainCat=14"><img src="resources/img/icon/main/m.png"><br>야식 </a>
 		<a href="storeListForm?mainCat=15"><img src="resources/img/icon/main/o.png"><br>도시락 </a>
+		<div class="ch"><a href="https://console.dialogflow.com/api-client/demo/embedded/8725f1d4-4c34-4c3d-ad0d-f766a73e7039"><img src="./resources/img/ch.png" width="10%" height="5%"></a></div>
 		<br>	
 	</div> 
 	
