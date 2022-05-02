@@ -137,6 +137,23 @@ function searchOption(recentSearches, popularSearch) {
 	})
 }
 
+//review
+let reviewForm = $(".reviewForm")
+
+reviewForm.submit(e => {
+	e.preventDefault()
+	$.post({
+		url: "review/insert",
+		data: {
+			"product_no" : e.target.product_no.value,
+		 	"r_scope" : e.target.r_scope.value,		
+		 	"r_content" : e.target.r_content.value
+		}
+	}).done(res => {
+		//console.log(res)
+	})
+})
+
 //
 $(() => {
 	

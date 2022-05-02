@@ -64,52 +64,21 @@
 		<div><a href="storeDetailInfo?storeNo=${storeNo }">정보</a></div>
 		<div><a href="review?storeNo=${storeNo}">리뷰</a></div>
 	</div>
-	<div class="storeCat flex">
-		<div>대표 메뉴</div>
-		<div>신메뉴</div>
-		<div>커피</div>
-		<div>베이커리</div>
-		<div>디저트, 기타</div>
-	</div>
-	<div class="reprence_menu">	
-		<h3>대표 메뉴</h3>
-		
-		<!-- 대표메뉴 -->
-		
-		<c:forEach var="p" items="${pList }" >
-		<c:if test="${p.productIsPopular eq 1 }">
-		<a href="productDetailForm?storeNo=${storeNo }&productNo=${p.productNo }">
-		<div class="storeDetail">
-			<div>
-				<div class="storeName-min">${p.productName }</div>   
-				<div>${p.productPrice } 원</div>
-			</div>
-			<div class="storeDetailImg">
-				<img src="#">
-			</div>
-		</div>
-		</a>
-		</c:if>
-		</c:forEach>
-	</div>
-
 	
-	<c:forEach var="p" items="${pList }" >
-	<c:if test="${p.productIsPopular eq 0 }">
-	<a href="productDetailForm?storeNo=${storeNo }&productNo=${p.productNo }">
-	<div class="storeDetail">
-		<div>
-			<div class="storeName-min">${p.productName }</div>   
-			<div>${p.productPrice } 원</div>
-		</div>
-		<div class="storeDetailImg">
-			<img src="#">
-		</div>
-	</div>
-	</a>
-	</c:if>
-	</c:forEach>
-	
+	<div>
+		<form class="reviewForm">
+			<input type="hidden" name="product_no" value="${store.storeNo}">
+		    <fieldset>
+		        <label for="rate1">⭐1</label><input type="radio" name="r_scope" value="1" id="rate1">
+		        <label for="rate2">⭐2</label><input type="radio" name="r_scope" value="2" id="rate2">
+		        <label for="rate3">⭐3</label><input type="radio" name="r_scope" value="3" id="rate3">
+		        <label for="rate4">⭐4</label><input type="radio" name="r_scope" value="4" id="rate4">
+		        <label for="rate5">⭐5</label><input type="radio" name="r_scope" value="5" id="rate5">
+		    </fieldset>
+		    <textarea rows="5" cols="50" name="r_content"></textarea>
+			<input type="submit" value="리뷰쓰기">
+		</form>
+	</div>	
 	
 	<jsp:include page="../../template/cartBtnForm.jsp" />
 		

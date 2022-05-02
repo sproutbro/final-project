@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.spring.baemin.mapper.ReviewMapper">
+	
+	<insert id="insertReview">
+		INSERT INTO review (user_id, product_no, r_scope, r_reg_date, r_img, r_content) 
+			VALUES (#{user_id}, #{product_no}, #{r_scope}, now(), null, #{r_content})
+	</insert>
+	
+</mapper>
