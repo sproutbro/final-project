@@ -29,4 +29,25 @@
 	<div>혹시, 배달의민족이 처음이신가요? 
 		<a href="userJoinForm">회원가입</a>
 	</div>
+	<a href="javascript:kakaoLogin();"><img src="./resources/img/1.jpg"></a>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>  
+        window.Kakao.init("fd399eb2f74f9d484b13aaf902799ffe");
+
+        function kakaoLogin(){
+            window.Kakao.Auth.login({
+                scope:'profile_nickname, account_email, gender',
+                success: function(authObj){
+                    console.log(authObj);
+                    window.Kakao.API.request({
+                        url:"/v2/uesr/me",
+                        success: res=>{
+                            const kakao_account = res.kakao_account;
+                            console.log(kakao_account)
+                        }
+                    });
+                }
+            });
+        }
+    </script>
 </article>
