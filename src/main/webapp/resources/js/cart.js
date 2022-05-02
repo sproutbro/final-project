@@ -61,7 +61,7 @@ $(function(){
 		    } else {
 		    	$.ajax({
 		    		type: "POST",
-		    		url: "cartDelete.ajax?cartCnt=" + totalCnt,
+		    		url: "cartUpdate.ajax?cartCnt=" + totalCnt,
 		    		success: function(){
 		    			$("#cStoreNo").val(pStoreNo);
 		    		},
@@ -180,5 +180,22 @@ $(function(){
 				window.location.href="userLoginForm";
 			}
 		}
+	})
+	
+	//################### store update && Delete###################
+	$("#storeUpdateBtn").click(function(){
+		$("#storeForm").attr("action", "storeUpdate");
+		$("#storeForm").submit();
+	})
+	$("#storeDeleteBtn").click(function(){
+		
+		
+		if (!confirm("정말로 상점을 폐업하시겠습니까? \n(기존에 등록된 모든 내용은 삭제됩니다.)")) {
+			return false;
+		} else {
+			$("#storeForm").attr("action", "storeDelete");
+			$("#storeForm").submit();
+		}
+	
 	})
 })

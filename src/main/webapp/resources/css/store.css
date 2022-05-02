@@ -70,6 +70,9 @@
 	margin: 10px auto;
 	width: 90%;
 }
+.storeContent{
+	margin-left: 10px;
+}
 .storeTd1{
 	width: 25%;
 	padding: 10px;
@@ -168,8 +171,34 @@
     width: 100%;
     margin-top: 10%;
 }
+.radios1{
+	border-radius: 20px;
+	border: 1px solid #eaeaea;
+}
 
+.storeUpdate{
+	position: absolute;
+	border-radius: 5px;
+	right: 26em;
+	width: 70px;
+	height: 20px;
+	background-color: RGB(121, 186, 190);
+	text-align: center;
+	line-height: -10em;
+	color: white;
+}
+.storeUpdate:hover{
+	background-color: RGB(140, 200, 210);
+}
 
-
-
-
+.clockImg{
+	width:12px;
+	height: 12px;
+}
+.storelogoMsg{
+	margin: auto;
+	color: #666;
+	text-align: center;
+	padding-top: 25px;
+	font-size: 6px;
+}

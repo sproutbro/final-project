@@ -31,7 +31,7 @@ public class CartController {
 	public String cartDelete(HttpSession session, int cartNo) {
 		String user_id = (String) session.getAttribute("user_id");
 		cartService.cartDelete(cartNo, user_id);
-		return "redirect:cart/cartListForm";
+		return "redirect:cartForm";
 	}
 	
 }

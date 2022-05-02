@@ -8,11 +8,6 @@
 		<div class="header3" >&nbsp;</div>
 	</div>
 	
-	<div class="bold">
-		<img src="#">
-		<span> 재용이네만족 본점</span>
-	</div>
-	
 	<!-- cartList -->
 	<c:forEach var="c" items="${cList}" varStatus="status">
 	<div class="bold flex1">
@@ -38,9 +33,7 @@
 	
 		<div class="p-detailTd flex1">
 			<span class="p-detailTh">결제 예정금액</span>
-			<p>
-				
-			</p>
+			<span class="p-detailTh">	${totalAmt } 원	</span>
 		</div>
 	<div class="detail-footer">
 		<div class="detail-footer-cartBtn" id="orderBtn">
