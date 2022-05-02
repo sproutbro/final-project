@@ -8,10 +8,11 @@
 		<div class="header3" >&nbsp;</div>
 	</div>
 	
-	<form action="userLoginProcess">
-		<input id="id" class="id" placeholder="아이디 또는 이메일" name="user_id"  />
-		<input id="pass" class="pass" placeholder="비밀번호" name="user_pass" />
-		<input type="submit" value="로그인">	
+	<form id="loginForm" action="userLoginProcess"
+		method="post">
+		<input id="user_id" class="id" placeholder="아이디 또는 이메일" name="user_id"  />
+		<input id="user_pass" class="pass" placeholder="비밀번호" name="user_pass" />
+		<input id="login" name="login" type="submit" value="로그인">	
 	</form>
 	
 	<a href="companyLoginForm">사장로그인</a>

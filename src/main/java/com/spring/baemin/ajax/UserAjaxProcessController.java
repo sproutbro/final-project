@@ -30,4 +30,13 @@ public class UserAjaxProcessController {
 		return userService.userFindPass(user_email, user_name, user_id);
 	}
 	
+	@RequestMapping("/idCheck.ajax")
+	@ResponseBody
+	public int idCheck(String user_id) {
+		System.out.println(user_id);
+		int result = userService.idCheck(user_id);
+		
+		return result;
+	}
+	
 }

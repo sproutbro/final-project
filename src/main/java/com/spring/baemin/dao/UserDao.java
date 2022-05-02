@@ -1,6 +1,7 @@
 package com.spring.baemin.dao;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import com.spring.baemin.domain.User;
 
@@ -19,5 +20,9 @@ public interface UserDao {
 	public abstract User getUser(String user_id);
 
 	String getUserPass(String user_email, String user_name, String user_id);
+	
+	int idCheck(String user_id);
+	
+	String userUpdate(String user_id, String user_email);
 
 }

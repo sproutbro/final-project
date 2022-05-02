@@ -69,6 +69,8 @@ public class UserController {
 		if((boolean)modelMap.get("isLogin") == true) {
 			session.setAttribute("isLogin", (boolean)modelMap.get("isLogin"));
 			session.setAttribute("user_id", modelMap.get("user_id"));
+			session.setAttribute("user_email", modelMap.get("user_email"));
+			System.out.println(modelMap.get("user_email"));
 			session.setAttribute("cartCnt", modelMap.get("cartCnt"));
 			session.setAttribute("productNo", modelMap.get("productNo"));
 			session.setAttribute("storeNo", modelMap.get("storeNo"));
@@ -100,5 +102,17 @@ public class UserController {
 		
 		return "user/userFind";
 	}
+
+	@RequestMapping("/userUpdateForm")
+	public String userUpdate(String user_id, String user_email) {
+		
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("user_id", user_id);
+		map.put("user_email", user_email);
+		
+		return "user/myPage/userUpdateForm";
+	}    
 
 }

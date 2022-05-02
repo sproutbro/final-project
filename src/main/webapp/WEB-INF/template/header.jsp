@@ -9,8 +9,9 @@
 			<a href="userLoginForm">로그인</a>
 		</c:if>
 		<c:if test="${sessionScope.isLogin }">
+			<span>안녕하세요!! ${sessionScope.user_id }님</span>
 			<a href="userLogoutProcess">로그아웃</a>
-			<a href="#">정보수정</a>
+			<a href="userUpdateForm?user_id=${ sessionScope.user_id }">정보수정</a>
 		</c:if>
 	</div>
 	<div class="btn-wrap">

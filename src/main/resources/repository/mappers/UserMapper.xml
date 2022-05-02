@@ -47,6 +47,10 @@
 	</select>
 	
 	
+	<!-- 아이디 중복 확인 -->
+	<select id="idCheck" parameterType="String" resultType="int">
+		select count(*) from user where user_id = #{user_id}
+	</select>
 	
 	<!-- dorService  -->
 	<select id="getUser" parameterType="String" resultType="User">
