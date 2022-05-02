@@ -1,4 +1,8 @@
-
+.drop-zone{
+	width: 50%;
+	height: 181px;
+	background: red;
+}
 .storeList  {
 	border-bottom: 2px solid #e0e0e0;
 	display: flex;

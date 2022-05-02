@@ -16,7 +16,6 @@
 <script src="resources/js/commond.js"></script>
 <script src="resources/js/cart.js"></script>
 <script src="resources/js/user.js"></script>
-
 <script src="resources/js/myPage.js"></script>
 <script src="resources/js/delivery.js"></script>
 <!-- 섹시한 스크립트 -->

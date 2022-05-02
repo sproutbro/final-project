@@ -1,4 +1,8 @@
 $(function(){
+	
+
+	
+	
 	$("#selectDomain").on("change", function(){
 	let str = $(this).val();
 	
