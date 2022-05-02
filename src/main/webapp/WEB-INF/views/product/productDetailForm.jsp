@@ -33,7 +33,7 @@
 		<div class="p-detail-box">
 			<div class="p-detailTh">가격</div>	
 			<div class="p-detailTd flex1">
-				<p><input type="radio" name="mainOption" value="" checked>&ensp; 1~2인분</p>
+				<p><input type="radio" name="mainOption" value="" checked>&ensp; ${p.productContent }</p>
 				<span> ${p.productPrice } 원</span> 
 			</div>
 		</div>
