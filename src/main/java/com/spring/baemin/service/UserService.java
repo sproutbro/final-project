@@ -14,4 +14,5 @@ public interface UserService {
 
 	Map<String, Object> userFindPass(String user_email, String user_name, String user_id);
 	
+	int idCheck(String user_id);
 }

@@ -19,5 +19,7 @@ public interface UserDao {
 	public abstract User getUser(String user_id);
 
 	String getUserPass(String user_email, String user_name, String user_id);
+	
+	int idCheck(String user_id);
 
 }

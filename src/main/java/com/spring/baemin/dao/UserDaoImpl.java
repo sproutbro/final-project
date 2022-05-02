@@ -86,5 +86,11 @@ public class UserDaoImpl implements UserDao {
 		return sqlSession.selectOne(NAME_SPACE + ".userPassCheck" , map);
 	}
 	
+	public int idCheck(String user_id) {
+		
+		int userId = sqlSession.selectOne(NAME_SPACE + ".idCheck", user_id);
+		
+		return userId;
+	}
 
 }

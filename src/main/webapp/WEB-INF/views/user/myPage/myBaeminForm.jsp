@@ -26,7 +26,7 @@
 		<div class="storeImg flex">
 			<img src="resources/img/icon/myPage/profile.png">
 		</div>
-		<a href="userLoginForm" class="loginText">고마운분, ${sessionScope.user_id }</a>
+		<a href="userUpdateForm" class="loginText">고마운분, ${sessionScope.user_id }</a>
 		<div>
 			<img src="resources/img/icon/myPage/insert.png" class="insertImg">
 		</div>

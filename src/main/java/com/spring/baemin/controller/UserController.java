@@ -100,4 +100,10 @@ public class UserController {
 		return "user/userFind";
 	}
 
+	@RequestMapping("/userUpdateForm")
+	public String userUpdate(String user_id) {
+		
+		return "user/myPage/userUpdateForm";
+	}
+
 }

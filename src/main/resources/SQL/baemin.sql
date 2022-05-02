@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `baemin`.`user` (
   UNIQUE INDEX `u_phone_UNIQUE` (`user_phone` ASC) )
 ENGINE = InnoDB;
 
+select * from user;
 
 -- -----------------------------------------------------
 -- Table `baemin`.`company`

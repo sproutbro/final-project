@@ -111,4 +111,10 @@ article{
 .bold{
 	font-weight: bold;
 }
+#user_id_ok{
+	display : none;
+}
 
+#user_id_already{
+	display : none;'
+}
