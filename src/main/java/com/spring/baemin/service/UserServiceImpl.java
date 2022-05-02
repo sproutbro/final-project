@@ -123,5 +123,18 @@ public class UserServiceImpl implements UserService {
 		
 		return result;
 	}
+	
+	public Map<String, Object> userUpdate(String user_id, String user_email){
+		
+		String result = userDao.userUpdate(user_id,user_email);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("user_id", user_id);
+		map.put("user_email", user_email);
+		map.put("result", result);
+		
+		return map;
+	}
 
 }

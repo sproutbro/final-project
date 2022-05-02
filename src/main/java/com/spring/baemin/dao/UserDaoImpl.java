@@ -92,5 +92,16 @@ public class UserDaoImpl implements UserDao {
 		
 		return userId;
 	}
+	
+	public String userUpdate(String user_id, String user_email){
+		
+		
+		
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("user_email", user_email);
+		
+		return sqlSession.selectOne(NAME_SPACE + ".userUpdate", map);
+	}
 
 }
