@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <article>
-	<form action="storeInsert" enctype="multipart/form-data" method="post">
+	<form id="storeForm" action="storeInsert" enctype="multipart/form-data" method="post">
 		<input type="hidden" name="comId" value="${sessionScope.comId}" />		
 		
 		회사명 : ${sessionScope.comId }<br>
-		가게이름 : <input type="text" name="storeName"><br/>
+		가게이름 : <input type="text" name="storeName" value="${store.storeName }"><br/>
 		카테고리 : 
 		<select name="mainCat">
 			<option value="1">돈까스,회,일식</option>
@@ -27,23 +27,32 @@
 		</select><br/>
 		
 		우편번호 : 
-		<input type="text" id="addr1" name="storeAddr1">
+		<input type="text" id="addr1" name="storeAddr1" value="${store.storeAddr1 }">
 		<button id="storeAddrBtn" type="button">우편번호 찾기</button>
 		
 		<br/>
 		주소 : 
-		<input type="text" id="addr2" name="storeAddr2"><br/>
+		<input type="text" id="addr2" name="storeAddr2" value="${store.storeAddr2 }"><br/>
 		상세주소 : 
-		<input type="text" id="addr3" name="storeAddr3"><br/>
+		<input type="text" id="addr3" name="storeAddr3" value="${store.storeAddr3 }"><br/>
 		전화번호 : 
-		<input type="text" name="phone1"> - 
-		<input type="text" name="phone2"> - 
-		<input type="text" name="phone3"><br/>
+		<input type="text" name="phone1" value=${phone1 }> - 
+		<input type="text" name="phone2" value=${phone2 }> - 
+		<input type="text" name="phone3" value=${phone3 }><br/>
 		파일<input type="file" id="file1"name="storeImage" size="70" maxlength="50" multiple>
 		<div class="drop-zone">
 			파일을 드래그해주세요.
 		</div>
-		<button type="submit">입점 신청</button>
+		
+		<!-- 입점 신청 버튼 -->
+		<c:if test="${empty store }"><button type="submit">입점 신청</button></c:if>
+		<!-- 상점 수정 버튼 -->
+		<c:if test="${not empty store  }">
+			<button id="storeUpdateBtn" type="button">상점 정보 수정</button>
+			<input type="hidden" name="storeNo" value="${store.storeNo }"	>
+			<button id="storeDeleteBtn" type="button">폐업 신고</button>
+		</c:if>
+		
 	</form>
 
 
@@ -137,8 +146,7 @@
 
         })();
     </script>
-
-
+    
 </article>
 
 

@@ -36,5 +36,15 @@ public class StoreDaoImpl implements StoreDao {
 		
 		return sqlSession.selectList(NAME_SPACE + ".getStoreList", mapModel);
 	}
+
+	@Override
+	public void storeUpdateProcess(Store store) {
+		sqlSession.update(NAME_SPACE + ".storeUpdate", store);
+	}
+
+	@Override
+	public void storeDelete(int storeNo) {
+		sqlSession.delete(NAME_SPACE + ".storeDelete", storeNo);
+	}
 	
 }

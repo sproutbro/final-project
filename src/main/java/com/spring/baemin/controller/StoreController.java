@@ -36,9 +36,6 @@ public class StoreController {
 	public String storeInsertProcess(Store store, String phone1, String phone2, String phone3,
 			@RequestParam(value="storeImage", required=false) MultipartFile multipartFile, HttpServletRequest request) throws IOException{
 		
-		System.out.println("originName : " + multipartFile.getOriginalFilename());
-		System.out.println("name : " + multipartFile.getName());
-		
 		if(!multipartFile.isEmpty()) {
 			String filePath = request.getServletContext().getRealPath(DEFAULT_PATH);
 			
@@ -73,11 +70,63 @@ public class StoreController {
 		
 		if(store.getStoreImg() != null) {
 			model.addAttribute("fileName", URLEncoder.encode(store.getStoreImg(), "utf-8"));
-		}
+		} 
 		
 		model.addAttribute("storeNo", product.getStoreNo());
 		model.addAllAttributes(mapModel);
 		
 		return "product/storeDetailForm";
 	}
+	
+	@RequestMapping("storeUpdateForm")
+	public String storeUpdateForm(Model model, int storeNo) {
+		
+		Store store = storeService.storeUpdateForm(storeNo);
+		String phone1 = "";
+		String phone2 = "";
+		String phone3 = "";
+		
+		if(store.getStorePhone() != null && store.getStorePhone().length() == 13) {
+			phone1 = store.getStorePhone().substring(0, 3); 
+			phone2 = store.getStorePhone().substring(4, 8);
+			phone3 = store.getStorePhone().substring(9, 13);
+		}
+		
+		model.addAttribute("store", store);
+		model.addAttribute("phone1", phone1);
+		model.addAttribute("phone2", phone2);
+		model.addAttribute("phone3", phone3);
+		
+		return "store/storeInsertForm";
+	}
+	
+	@RequestMapping(value="storeUpdate", method=RequestMethod.POST)
+	public String storeUpdateProcess(Store store, String phone1, String phone2, String phone3,
+			@RequestParam(value="storeImage", required=false) MultipartFile multipartFile, HttpServletRequest request) throws IOException{
+		
+		if(!multipartFile.isEmpty()) {
+			String filePath = request.getServletContext().getRealPath(DEFAULT_PATH);
+			
+			UUID uid = UUID.randomUUID();
+			String saveName = uid.toString() + "-" + multipartFile.getOriginalFilename();
+			
+			File file = new File(filePath, saveName);
+			System.out.println("insertStore - newName : " + file.getName());
+			
+			multipartFile.transferTo(file);
+			
+			store.setStoreImg(saveName);
+		}		
+		store.getStoreNo();
+		store.setStorePhone(phone1 + "-" + phone2 + "-" + phone3);
+		storeService.storeUpdateProcess(store);
+		return "redirect:company";
+	}
+	
+	@RequestMapping("storeDelete")
+	public String sotreDelete(int storeNo) {
+		storeService.storeDelete(storeNo);
+		return "redirect:company";
+	}
+	
 }
