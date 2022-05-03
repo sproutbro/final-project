@@ -62,6 +62,13 @@
 		SELECT * FROM user WHERE user_id = #{user_id}
 	</select>
 
+	<update id="update1" parameterType="User">
+		UPDATE user 
+		SET user_pass = #{user_pass} 
+		WHERE user_id = #{user_id}
+	</update>
+	
+
 	<resultMap id="userResultMap" type="User">
 		<id property="user_id" column="user_id" />
 		<result property="user_pass" column="user_pass" />

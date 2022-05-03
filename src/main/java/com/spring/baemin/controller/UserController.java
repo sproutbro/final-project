@@ -102,15 +102,18 @@ public class UserController {
 
 	@RequestMapping("/userUpdateForm")
 	public String userUpdate(String user_id, String user_email,
-			HttpSession session) {
+			Model model) {
+		User user = userService.getUser(user_id);
 		
+		model.addAttribute("user", user);
 		return "user/myPage/userUpdateForm";
 	}
 	
-	@RequestMapping("userUpdateProcess")
-	public String userUpdate(String user_id, String user_email) {
+	@RequestMapping("updateProcess")
+	public String userUpdate(User user) {
+		userService.userUpdate1(user);
 		
-		return "user/myPage/myBaemin";
+		return "user/myPage/myBaeminForm";
 	}
 
 }

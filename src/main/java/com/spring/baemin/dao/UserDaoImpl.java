@@ -115,4 +115,9 @@ public class UserDaoImpl implements UserDao {
 		return sqlSession.selectOne(NAME_SPACE + ".userLoginCheck",map);
 	}
 
+	@Override
+	public void userUpdate1(User user) {
+		sqlSession.update(NAME_SPACE + ".update1", user);
+	}
+
 }

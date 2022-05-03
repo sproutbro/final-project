@@ -38,7 +38,7 @@
 	<div class="main_footer">
 		<div class="main_nav"><a href="searchForm" ><img src="resources/img/icon/main/search.png"><br>검색</a></div>
 		<div class="main_nav"><a href="userWishForm" ><img src="resources/img/icon/main/wishList.png"></a><br>찜</div>
-		<div><a href="/" ><img src="resources/img/icon/b.png"></a></div>
+		<div><a href="#" ><img src="resources/img/icon/b.png"></a></div>
 		<div class="main_nav"><a href="odrListForm" ><img src="resources/img/icon/main/orderList.png"><br>주문내역</a></div>
 		<div class="main_nav"><a href="myBaemin" ><img src="resources/img/icon/main/myBaemin.png"><br>My배민</a></div>
 	</div>
