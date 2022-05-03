@@ -45,7 +45,9 @@
 	<c:forEach var="s" items="${sList }">
 	<a href="storeDetailForm?storeNo=${s.storeNo }">
 	<div class="storeList">
-		<div class="storeImg"><img src="${s.storeImg }"></div>
+		<c:if test="${not empty s.storeImg }">
+		<div class="storeImg adios1"><img class="radios1" src="./resources/upload/${s.storeImg }"></div>
+		</c:if>
 		<div class="storeContent">
 			<div class="storeName-min">${s.storeName }</div>
 			<div class="storeScope">
@@ -57,7 +59,7 @@
 				<span class="deliverySpan">0원 ~ 4000원</span>
 			</div>
 			<div class="deliveryTime">
-				<img src="#">
+				<img class="clockImg" src="./resources/img/icon/clock.png">
 				<span> 35~40분 </span>
 			</div>
 		</div>

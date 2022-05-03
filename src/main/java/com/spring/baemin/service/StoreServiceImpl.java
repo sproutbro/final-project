@@ -44,4 +44,16 @@ public class StoreServiceImpl implements StoreService {
 		
 		return mapModel;
 	}
+	@Override
+	public Store storeUpdateForm(int storeNo) {
+		return storeDao.getStore(storeNo);
+	}
+	@Override
+	public void storeUpdateProcess(Store store) {
+		storeDao.storeUpdateProcess(store);	
+	}
+	@Override
+	public void storeDelete(int storeNo) {
+		storeDao.storeDelete(storeNo);
+	}
 }
