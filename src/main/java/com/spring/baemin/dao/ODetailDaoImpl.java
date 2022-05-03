@@ -22,6 +22,7 @@ public class ODetailDaoImpl implements ODetailDao {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("odrNo", odrNo);
 		params.put("cartList", cartList);
+		
 		sqlSession.insert(NAME_SPACE + ".insertODetail", params);
 	}
 
