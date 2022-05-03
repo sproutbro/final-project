@@ -16,7 +16,9 @@
 		<div class="flex1">
 			<span>
 			<%-- <fmt:formatDate value="${oList.odrRegDate }" type="both" pattern="yyyy-MM-dd"/> <br/> --%>
-			<fmt:formatDate value="${ oList.odrRegDate }" pattern="yyyy-MM-dd HH:mm:ss" />
+			<%-- <fmt:formatDate value="${ oList.odrRegDate }" pattern="yyyy-MM-dd HH:mm:ss" /> --%>
+			<fmt:parseDate var="toDay_D" value="${o.odrRegDate }" pattern="yyyy-MM-dd HH:mm:ss" />
+			<fmt:formatDate value="${toDay_D}" pattern="yyyy.MM.dd (E)" />
 			 - 
 			 <c:if test="${o.odrStatus eq 0}"> 
 			 	조리 중
@@ -33,13 +35,13 @@
 				<a href="#"><img class="orderList-img" src="resources/img/icon/menu.png" /></a>
 			</span>
 		</div>
-		<a href="#">
+		<a href="storeDetailForm?storeNo=${sList[status.index].storeNo }">
 		<div class="storeList">
 			<div class="storeImg"><img src="#"></div>
 			<div class="storeContent">
 				<p class="storeName-min">${sList[status.index].storeName} ></p>
 				<c:forEach var="p" items="${o.pList }" varStatus="status">
-				<p>${p.productName }</p>
+				<p>상품 명 : ${p.productName }</p>
 				</c:forEach>
 			</div>
 		</div>

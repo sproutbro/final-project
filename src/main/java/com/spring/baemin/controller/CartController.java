@@ -22,7 +22,7 @@ public class CartController {
 		String user_id = (String) session.getAttribute("user_id");
 		
 		Map<String, Object> modelMap = cartService.getCartList(user_id);
-		
+		System.out.println(modelMap);
 		model.addAllAttributes(modelMap);
 		return "cart/cartListForm";
 	}
