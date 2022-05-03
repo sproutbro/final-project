@@ -7,18 +7,28 @@
 		<div class="main_address header2" >로그인</div>
 		<div class="header3" >&nbsp;</div>
 	</div>
-	
+	<div class="loginFormWrap">
 	<form id="loginForm" action="userLoginProcess"
 		method="post">
+		<div class="loginFormIn">
+		<div class="loginFormIn1">
 		<input id="user_id" class="id" placeholder="아이디 또는 이메일" name="user_id"  />
 		<input id="user_pass" class="pass" placeholder="비밀번호" name="user_pass" />
+<<<<<<< HEAD
 		
 	</form>
 	<input id="login" name="login" type="submit" value="로그인">	
 	
+=======
+		<input id="login" name="login" type="submit" value="로그인">
+		</div>
+		</div>	
+	</form>
+	<div class="companyLogin">
+>>>>>>> 35288f030b31e014754a17adb25edf711985b756
 	<a href="companyLoginForm">사장로그인</a>
 	<a href="companyInsertForm">사장 회원가입</a>
-	
+	</div>
 	<br><br><br>
 	<a href="userFind?userCheck=true">아이디 찾기</a> | 
 	<a href="userFind?userCheck=false">비밀번호 찾기</a>
@@ -29,8 +39,12 @@
 	<br> 
 	<div>혹시, 배달의민족이 처음이신가요? 
 		<a href="userJoinForm">회원가입</a>
+		<div class="gongback"> </div>
 	</div>
+	
 	<a href="javascript:kakaoLogin();"><img src="./resources/img/1.jpg"></a>
+	<div class="gongback"> </div>
+	</div>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>  
         window.Kakao.init("fd399eb2f74f9d484b13aaf902799ffe");
