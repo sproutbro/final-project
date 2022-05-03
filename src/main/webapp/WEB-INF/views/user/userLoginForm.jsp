@@ -12,8 +12,9 @@
 		method="post">
 		<input id="user_id" class="id" placeholder="아이디 또는 이메일" name="user_id"  />
 		<input id="user_pass" class="pass" placeholder="비밀번호" name="user_pass" />
-		<input id="login" name="login" type="submit" value="로그인">	
+		
 	</form>
+	<input id="login" name="login" type="submit" value="로그인">	
 	
 	<a href="companyLoginForm">사장로그인</a>
 	<a href="companyInsertForm">사장 회원가입</a>

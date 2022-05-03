@@ -24,5 +24,7 @@ public interface UserDao {
 	int idCheck(String user_id);
 	
 	String userUpdate(String user_id, String user_email);
+	
+	User userLoginCheck(String user_id, String user_pass);
 
 }

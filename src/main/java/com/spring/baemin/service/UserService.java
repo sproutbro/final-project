@@ -17,4 +17,6 @@ public interface UserService {
 	int idCheck(String user_id);
 	
 	Map<String, Object> userUpdate(String user_id, String user_email);
+	
+	User userLoginCheck(String user_id, String user_pass);
 }

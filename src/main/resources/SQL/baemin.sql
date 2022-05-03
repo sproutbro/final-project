@@ -11,6 +11,8 @@ DROP SCHEMA IF EXISTS `baemin` ;
 CREATE SCHEMA IF NOT EXISTS `baemin` DEFAULT CHARACTER SET utf8 ;
 USE `baemin` ;
 
+select * from user;
+
 -- -----------------------------------------------------
 -- Table `baemin`.`user`
 -- -----------------------------------------------------

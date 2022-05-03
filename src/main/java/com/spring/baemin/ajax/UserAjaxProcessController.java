@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.spring.baemin.domain.User;
 import com.spring.baemin.service.UserService;
 
 @Controller
@@ -37,6 +38,13 @@ public class UserAjaxProcessController {
 		int result = userService.idCheck(user_id);
 		
 		return result;
+	}
+	
+	@RequestMapping("/userLoginCheck")
+	@ResponseBody
+	public User userLoginCheck(String user_id, String user_pass){
+		
+		return userService.userLoginCheck(user_id, user_pass);
 	}
 	
 }

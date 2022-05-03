@@ -5,25 +5,20 @@ $(function(){
 		
 		var user_email = $("#user_email").val();
 		var user_name = $("#user_name").val();
-		console.log("ajax1");
+		
 		$.ajax({
 			type : "post",
 			url: "userFindProcess.ajax",
 			data: "user_email=" + user_email + "&user_name=" + user_name,
 			success : function(map, status, xhr){
-			console.log("ajax2");
 			
 			if(map.result == -1) {
-				console.log(map.result);
 				alert("아이디가 존재하지 않습니다.");
 			}else if(map.result == 0) {
-				console.log(map.result);
 				alert("이름이 잘못 입력되었습니다.");
 			}else {
-				console.log(map.user_id);
 				alert(map.user_id);
 			}
-			console.log("ajax3");
 			
 			}, 
 			error: function(xhr, status, error) {
@@ -44,20 +39,13 @@ $(function(){
 				data : "user_email=" + user_email + "&user_name=" + user_name
 					+ "&user_id=" + user_id,
 				success : function(map, status, xhr){
-				console.log(map.user_pass);
-				console.log(map.user_email);
-				console.log(map.user_name);
 				
 				if(map.result == 0) {
-					console.log(map.user_email + " 11");
 					alert("이름이 잘못 입력 되었습니다.");
 				}else if(map.result == 1) {
-					console.log(map.result + " 22");
 					alert("아이디가 잘못 입력되었습니다.");
 				}else {
-					console.log(map.result + " 55");
 					alert(map.user_pass);
-					console.log(map.result + " 55");
 				}
 				
 				},
@@ -68,11 +56,11 @@ $(function(){
 		});
 		
 	//아이디 비번 입력 없이 로그인버튼 눌렀을때
-	$("#loginForm").on("submit",function(){
+	$("#login").on("click",function(e){
 		var user_id = $("#user_id").val();
 		var user_pass = $("#user_pass").val();
 		
-		if(user_id.length <= 0) {
+		/*if(user_id.length <= 0) {
 			alert("아이디가 입력되지 않았습니다.\n 아이디를 입력해 주세요.");
 			$("#user_id").focus();
 			return false;
@@ -82,6 +70,42 @@ $(function(){
 			$("#user_pass").focus();
 			return false;
 		}
+		*/
+		
+		$.ajax({
+			type : "post",
+			url : "userLoginCheck",
+			data : { user_id : user_id,
+				user_pass : user_pass},
+			success : function(map, status, xhr){
+					console.log(map.user_id);
+					console.log(map.user_pass);
+					
+					
+					if(map.user_id != user_id) {
+						alert("올바른 아이디가 아닙니다 \n 아이디를 확인해 주세여.");
+						$("#user_id").focus();
+						return false;
+					} else
+					 if(map.user_pass != user_pass) {
+						 alert("비밀번호가 틀렸습니다 \n 비밀번호를 확인해 주세요.");
+						 $("#user_pass").focus();
+						 return false;
+					 } else {
+						 $("#loginForm").submit();
+					 }
+					 
+		},
+		error : function(error, status, xhr){
+			alert("실패" + status + " - " + xhr.status);
+			
+		}
+			
+		});
+		
+		//e.preventDefault();
+		 
+		
 	});
 	
 	//아이디 중복체크
@@ -176,5 +200,14 @@ $(function(){
 		
 		return false;
 	})
+	
+	//수정하기
+	$("#update").click(function(){
+		
+		
+		
+	})
+	
+	
 	
 });

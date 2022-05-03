@@ -33,26 +33,6 @@ public class UserServiceImpl implements UserService {
 	public Map<String, Object> userLoginProcess(String user_pass, String user_id) {
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		int cartCnt = 0;
 		int productNo = 0;
 		int storeNo = 0;
@@ -157,6 +137,13 @@ public class UserServiceImpl implements UserService {
 		map.put("result", result);
 		
 		return map;
+	}
+	
+	public User userLoginCheck(String user_id, String user_pass){
+		
+		User user = userDao.userLoginCheck(user_id, user_pass);
+	
+		return user;
 	}
 
 }

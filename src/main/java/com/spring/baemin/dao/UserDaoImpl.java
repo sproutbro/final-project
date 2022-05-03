@@ -103,5 +103,16 @@ public class UserDaoImpl implements UserDao {
 		
 		return sqlSession.selectOne(NAME_SPACE + ".userUpdate", map);
 	}
+	
+	public User userLoginCheck(String user_id, String user_pass){
+	
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("user_pass", user_pass);
+		
+		
+		return sqlSession.selectOne(NAME_SPACE + ".userLoginCheck",map);
+	}
 
 }
