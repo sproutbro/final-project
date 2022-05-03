@@ -7,9 +7,6 @@
 	<div class="header">
 		<div class="back header1"><img src="resources/img/icon/back.png"></div>
 		<div class="main_address header2" >${store.storeName }</div>
-		<c:if test="${isCompany }">
-			<div class="header3" ><a href="productInsertForm?storeNo=${storeNo}">등록</a></div>
-		</c:if>
 		<c:if test="${not isCompany }">
 			<div class="header3" ><a href="#"><img class="searchImg" src="resources/img/icon/search2.png"></a></div>
 		</c:if>
@@ -30,7 +27,7 @@
 			</div>
 			<div class="storeLink flex">
 				<div><img src="resources/img/icon/store/phone.png"> 전화</div>|
-				<div id="wishBtn" data-storeno="${storeNo}"> <img src="resources/img/icon/store/heart.png"> 찜</div>|
+				<div id="wishBtn" data-storeno="${store.storeNo}"> <img src="resources/img/icon/store/heart.png"> 찜</div>|
 				<div> <img src="resources/img/icon/store/share.png"> 공유</div>
 			</div>
 		</div>
@@ -62,10 +59,11 @@
 	<div class="sotreContent flex">
 		<div>메뉴</div>
 		<div><a href="storeDetailInfo?storeNo=${storeNo }">정보</a></div>
-		<div><a href="review?storeNo=${storeNo}">리뷰</a></div>
+		<div><a href="#">리뷰</a></div>
 	</div>
 	
 	<div>
+		<p class="평균별점"></p>
 		<form class="reviewForm">
 			<input type="hidden" name="product_no" value="${store.storeNo}">
 		    <fieldset>
@@ -79,6 +77,10 @@
 			<input type="submit" value="리뷰쓰기">
 		</form>
 	</div>	
+
+	<div class="reviewList">
+		
+	</div>
 	
 	<jsp:include page="../../template/cartBtnForm.jsp" />
 		

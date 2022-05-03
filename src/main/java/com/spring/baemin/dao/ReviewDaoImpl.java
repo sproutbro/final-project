@@ -1,5 +1,7 @@
 package com.spring.baemin.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,11 +20,14 @@ public class ReviewDaoImpl implements ReviewDao{
 		this.sqlSession = sqlSession;
 	}
 
-
-
 	@Override
 	public void insertReview(Review review) {
 		sqlSession.insert(NAME_SPACE + ".insertReview", review);
+	}
+
+	@Override
+	public List<Review> selectReview(int store_no) {
+		return sqlSession.selectList(NAME_SPACE + ".selectReview", store_no);
 	}
 
 }

@@ -1,7 +1,6 @@
 package com.spring.baemin.controller;
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,14 +50,16 @@ public class ReviewController {
 	@RequestMapping(value = "review/insert", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Review> insertReview(Review review, HttpSession session) {
-
 		String user_id = (String) session.getAttribute("user_id");
-		
 		review.setUser_id(user_id);
-		
 		reviewService.insertReview(review);
-		
-		return null; 
+		return reviewService.selectReview(review.getProduct_no());
+	}
+
+	@RequestMapping(value = "review/reviewList", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Review> insertReview(@RequestParam int store_no) {
+		return reviewService.selectReview(store_no);
 	}
 	
 }
