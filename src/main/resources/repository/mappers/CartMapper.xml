@@ -25,12 +25,12 @@
 		UPDATE cart 
 		SET cart_cnt = cart_cnt + #{cartCnt}, 
 			cart_amt = cart_amt + #{cartAmt}
-		WHERE user_id = #{user_id} AND product_no=#{productNo}
+		WHERE user_id = #{user_id} AND product_no=#{productNo} AND cart_is_pay_check = 0
 	</update>
 	
 	
 	<select id="getCartList" parameterType="String" resultMap="cartResultMap">
-		SELECT * FROM cart WHERE user_id = #{user_id}
+		SELECT * FROM cart WHERE user_id = #{user_id} AND cart_is_pay_check = 0
 	</select>
 	
 	<delete id="cartDelete" parameterType="map">
@@ -40,11 +40,16 @@
 			<if test="cartNo != 0">
 			And cart_no=#{cartNo}
 			</if>
+			AND cart_is_pay_check = 0
 	</delete>
 	
 	<select id="cartCnt" parameterType="String" resultType="int">
-		SELECT count(*) FROM cart WHERE user_id=#{user_id}
+		SELECT count(*) FROM cart WHERE user_id=#{user_id} AND cart_is_pay_check = 0
 	</select>
+	
+	<update id="cartIsPayCheck" parameterType="String">
+		UPDATE cart SET cart_is_pay_check = 1 WHERE user_id = #{user_id}
+	</update>
 	
 	
 	

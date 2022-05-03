@@ -33,7 +33,7 @@
 		<div class="p-detail-box">
 			<div class="p-detailTh">가격</div>	
 			<div class="p-detailTd flex1">
-				<p><input type="radio" name="mainOption" value="" checked>&ensp; 1~2인분</p>
+				<p><input type="radio" name="mainOption" value="" checked>&ensp; ${p.productContent }</p>
 				<span> ${p.productPrice } 원</span> 
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 	</div>
 	<input type="hidden" id="pStoreNo" value="${storeNo }">
 	<input type="hidden" id="cStoreNo" value="${sessionScope.storeNo }">
-	<input type="hidden" name="isLogin" value="${sessionScope.isLogin }">
+	<input type="hidden" id="isLogin" name="isLogin" value="${sessionScope.isLogin }">
 	<input type="hidden" id="productNo" value="${productNo }">
 	<input type="hidden" id="totalCnt" value="1">
 	<input type="hidden" id="totalAmt" value="${ p.productPrice }">

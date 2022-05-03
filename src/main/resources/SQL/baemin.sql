@@ -11,6 +11,8 @@ DROP SCHEMA IF EXISTS `baemin` ;
 CREATE SCHEMA IF NOT EXISTS `baemin` DEFAULT CHARACTER SET utf8 ;
 USE `baemin` ;
 
+select * from user;
+
 -- -----------------------------------------------------
 -- Table `baemin`.`user`
 -- -----------------------------------------------------
@@ -34,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `baemin`.`user` (
   UNIQUE INDEX `u_phone_UNIQUE` (`user_phone` ASC) )
 ENGINE = InnoDB;
 
+select * from user;
 
 -- -----------------------------------------------------
 -- Table `baemin`.`company`
@@ -70,10 +73,10 @@ CREATE TABLE IF NOT EXISTS `baemin`.`store` (
   `store_addr2` VARCHAR(45) NULL,
   `store_addr3` VARCHAR(45) NULL,
   `store_phone` VARCHAR(45) NULL,
-  `store_reg_date` DATETIME NULL COMMENT '1 : 돈가스 회 일식\n2 : 중식\n3 : 치킨\n4 : 백반 죽 국수\n5 : 카페 디저트\n6 : 분식\n7 : 찜 탕 찌개\n8 : 피자\n9 : 양식\n10 : 고기 구이\n11 : 족발 보쌈\n12 : 아시안\n13 : 패스트푸드\n14 : 야식\n15 : 도시락',
+  `store_reg_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '1 : 돈가스 회 일식\n2 : 중식\n3 : 치킨\n4 : 백반 죽 국수\n5 : 카페 디저트\n6 : 분식\n7 : 찜 탕 찌개\n8 : 피자\n9 : 양식\n10 : 고기 구이\n11 : 족발 보쌈\n12 : 아시안\n13 : 패스트푸드\n14 : 야식\n15 : 도시락',
   `store_img` VARCHAR(200) NULL,
-  `store_open_time` DATETIME NULL,
-  `store_close_time` DATETIME NULL,
+  `store_open_time` TIMESTAMP NULL,
+  `store_close_time` TIMESTAMP NULL,
   `store_deli_time_min` VARCHAR(45) NULL,
   `store_deli_time_max` VARCHAR(45) NULL,
   `store_scope` DECIMAL(4,3) NULL,
@@ -182,6 +185,35 @@ CREATE TABLE IF NOT EXISTS `baemin`.`product` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `baemin`.`order0`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `baemin`.`order0` ;
+
+CREATE TABLE IF NOT EXISTS `baemin`.`order0` (
+  `odr_no` INT NOT NULL AUTO_INCREMENT,
+  `user_id` VARCHAR(45) NOT NULL,
+  `odr_addr1` VARCHAR(45) NOT NULL,
+  `odr_addr2` VARCHAR(45) NOT NULL,
+  `odr_addr3` VARCHAR(45) NOT NULL,
+  `odr_phone` VARCHAR(45) NOT NULL,
+  `odr_isDisposable` INT NOT NULL DEFAULT 0 COMMENT '0 : 일회용품 미사용\n1 : 일회용품 사용',
+  `odr_ceo_msg` VARCHAR(45) NULL,
+  `odr_rider_msg` VARCHAR(45) NULL,
+  `odr_pay` INT NOT NULL DEFAULT 0 COMMENT '0 : 신용/체크카드\n1 : 휴대폰결제\n2 : 네이버페이\n3 : 카카오페이\n4 : 토스\n5 : 만나서 카드결제\n6 : 만나서 현금결제',
+  `odr_cp` VARCHAR(45) NULL,
+  `odr_reg_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `odr_status` INT NOT NULL DEFAULT 0 COMMENT '0 : 조리 중\n1 : 픽업 완료\n2 : 배달 완료',
+  `odr_total_amt` INT NULL,
+  PRIMARY KEY (`odr_no`),
+  INDEX `fk_order0_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_order0_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `baemin`.`user` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `baemin`.`cart`
@@ -194,6 +226,7 @@ CREATE TABLE IF NOT EXISTS `baemin`.`cart` (
   `product_no` INT NOT NULL,
   `cart_cnt` INT NOT NULL DEFAULT 0,
   `cart_amt` INT NOT NULL DEFAULT 0,
+  `cart_is_pay_check` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`cart_no`),
   INDEX `fk_cart_user1_idx` (`user_id` ASC),
   INDEX `fk_cart_product1_idx` (`product_no` ASC),
@@ -301,42 +334,30 @@ CREATE TABLE IF NOT EXISTS `baemin`.`delivery` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `baemin`.`order0`
+-- Table `baemin`.`o_detail`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `baemin`.`order0` ;
+DROP TABLE IF EXISTS `baemin`.`o_detail` ;
 
-CREATE TABLE IF NOT EXISTS `baemin`.`order0` (
-  `odr_no` INT NOT NULL AUTO_INCREMENT,
-  `user_id` VARCHAR(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `baemin`.`o_detail` (
+  `o_dtl_no` INT NOT NULL AUTO_INCREMENT,
+  `odr_no` INT NOT NULL,
   `cart_no` INT NOT NULL,
-  `odr_addr1` VARCHAR(45) NOT NULL,
-  `odr_addr2` VARCHAR(45) NOT NULL,
-  `odr_addr3` VARCHAR(45) NOT NULL,
-  `odr_phone` VARCHAR(45) NOT NULL,
-  `odr_isDisposable` INT NOT NULL DEFAULT 0 COMMENT '0 : 일회용품 미사용\n1 : 일회용품 사용',
-  `odr_ceo_msg` VARCHAR(45) NULL,
-  `odr_rider_msg` VARCHAR(45) NULL,
-  `odr_pay` INT NOT NULL DEFAULT 0 COMMENT '0 : 신용/체크카드\n1 : 휴대폰결제\n2 : 네이버페이\n3 : 카카오페이\n4 : 토스\n5 : 만나서 카드결제\n6 : 만나서 현금결제',
-  `odr_cp` VARCHAR(45) NULL,
-  `odr_total_amt` INT NOT NULL,
-  `odr_reg_date` DATETIME NULL,
-  `odr_status` INT NOT NULL DEFAULT 0 COMMENT '0 : 조리 중\n1 : 픽업 완료\n2 : 배달 완료',
-  PRIMARY KEY (`odr_no`),
-  INDEX `fk_order0_user1_idx` (`user_id` ASC),
-  INDEX `fk_order0_cart1_idx` (`cart_no` ASC),
-  CONSTRAINT `fk_order0_user1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `baemin`.`user` (`user_id`)
+  PRIMARY KEY (`o_dtl_no`),
+  INDEX `fk_o_Detail_order01_idx` (`odr_no` ASC),
+  INDEX `fk_o_detail_cart1_idx` (`cart_no` ASC),
+  CONSTRAINT `fk_o_Detail_order01`
+    FOREIGN KEY (`odr_no`)
+    REFERENCES `baemin`.`order0` (`odr_no`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_order0_cart1`
+  CONSTRAINT `fk_o_detail_cart1`
     FOREIGN KEY (`cart_no`)
     REFERENCES `baemin`.`cart` (`cart_no`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 ALTER TABLE baemin.address CONVERT TO character SET utf8;
 ALTER TABLE baemin.cart CONVERT TO character SET utf8;
@@ -351,6 +372,7 @@ ALTER TABLE baemin.store_category CONVERT TO character SET utf8;
 ALTER TABLE baemin.user CONVERT TO character SET utf8;
 ALTER TABLE baemin.search CONVERT TO character SET utf8;
 ALTER TABLE baemin.wish CONVERT TO character SET utf8;
+ALTER TABLE baemin.o_detail CONVERT TO character SET utf8;
 
 -- -----------------------------------------------------
 -- Data for table `baemin`.`user`
@@ -451,4 +473,16 @@ INSERT INTO `baemin`.`product` (`product_no`, `store_no`, `product_name`, `produ
 
 COMMIT;
 
+DROP TABLE IF EXISTS `baemin`.`review0`;
 
+CREATE TABLE IF NOT EXISTS `baemin`.`review0` (
+  `r_no` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `user_id` VARCHAR(45) NOT NULL,
+  `product_no` INT NOT NULL,
+  `r_scope` DECIMAL(4,3) NULL,
+  `r_reg_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `r_img` VARCHAR(200) NULL,
+  `r_content` VARCHAR(200) NULL
+)ENGINE = InnoDB CHARACTER SET utf8;
+
+COMMIT;

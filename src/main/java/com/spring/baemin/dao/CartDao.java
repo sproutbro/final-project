@@ -10,4 +10,5 @@ public interface CartDao {
 	public abstract List<Cart> getCartList(String user_id);
 	public abstract void cartDelete(int cartNo, String user_id);
 	public abstract int cartCnt(String user_id);
+	public abstract void cartUpdate(String user_id);
 }

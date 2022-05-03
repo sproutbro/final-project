@@ -5,8 +5,8 @@
 <div id="cartBtnForm">
 	&nbsp;<img id=cartImg src="resources/img/icon/cart.svg" />
 	<c:if test="${sessionScope.cartCnt > 0}">
-	
 	<div id="cartNum">${sessionScope.cartCnt }</div>
 	</c:if>
+	<input type="hidden" value="${sessionScope.isLogin }" />
 </div>
 </a>

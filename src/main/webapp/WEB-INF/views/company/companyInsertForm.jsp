@@ -46,6 +46,11 @@
 					<option>한메일</option>
 					<option>구글</option>										
 				</select>
+				<input type="button" id="emailCheck" value="이메일확인">
+	</div>
+	<div>
+		이메일 확인 : <input type="text" id="emailCheck2" placeholder="인증번호를입력해주세요">
+		<input type="button" id="emailCheck3" value="이메일 인증확인">
 	</div>
 	<div>
 			<input type="reset" value="다시쓰기"/>

@@ -8,12 +8,22 @@
 	<a href="companyUpdateForm">사장님 정보수정</a>
 	<!-- storeList start -->
 	<c:forEach var="s" items="${sList }">
-	<a href="storeDetailForm?storeNo=${s.storeNo}">
+	
 	<div class="storeList">
-		<div class="storeImg">
-			<img src="./resources/upload/${s.storeImg}">
+		
+		<div class="storeUpdate"><a href="storeUpdateForm?storeNo=${s.storeNo}">수정</a></div>
+		
+		<div class="storeImg ">
+			<c:if test="${not empty s.storeImg }">
+			<img class="radios1" src="./resources/upload/${s.storeImg}">
+			</c:if>
+			<c:if test="${empty s.storeImg }">
+				<div class="storelogoMsg">이미지를<br> 등록해주세요</div>
+			</c:if>
 		</div>
+		
 		<div class="storeContent">
+			<a href="storeDetailForm?storeNo=${s.storeNo}">
 			<div class="storeName-min">${s.storeName }</div>
 			<div class="storeScope">
 				<span class="scopeSpan">${s.storeScope }</span>
@@ -24,12 +34,14 @@
 				<span class="deliverySpan">0원 ~ 4000원</span>
 			</div>
 			<div class="deliveryTime">
-				<img src="#">
+				<img class="clockImg" src="./resources/img/icon/clock.png">
 				<span> 35~40분 </span>
 			</div>
+			</a>
 		</div>
+
 	</div>
-	</a>
+
 	
 	</c:forEach>
 </article>

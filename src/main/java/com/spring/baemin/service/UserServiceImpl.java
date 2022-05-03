@@ -33,26 +33,6 @@ public class UserServiceImpl implements UserService {
 	public Map<String, Object> userLoginProcess(String user_pass, String user_id) {
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		int cartCnt = 0;
 		int productNo = 0;
 		int storeNo = 0;
@@ -119,27 +99,15 @@ public class UserServiceImpl implements UserService {
 		String user_pass = "";
 	
 		if(emailCheck == 1 && nameCheck == 0 && idCheck == 0) { 
-			result = 0; 
-			System.out.println(emailCheck + "이메일 1");
-			System.out.println(nameCheck + "이름 1");
-			System.out.println(idCheck + "아이디 1");
+			result = 0;
 		}
 		else if(emailCheck == 1 && nameCheck == 1 && idCheck == 0) {
-			System.out.println(emailCheck + " 2");
-			System.out.println(nameCheck + " 2");
-			System.out.println(idCheck + " 2");
 			result = 1;
 		}
 		else if(emailCheck == 1 && nameCheck == 1 && idCheck == 1) {
-			System.out.println(emailCheck + "4");
-			System.out.println(nameCheck + "4");
-			System.out.println(idCheck + "4");
 			result = 3; 
 			user_pass = userDao.getUserPass(user_email,user_name, user_id);
 		}
-		System.out.println(result + "1");
-		System.out.println(result + "2");
-		System.out.println(result + "3");
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
@@ -151,5 +119,41 @@ public class UserServiceImpl implements UserService {
 	
 	}
 	
+	public int idCheck(String user_id) {
+		
+		int result = userDao.idCheck(user_id);
+		
+		return result;
+	}
+	
+	public Map<String, Object> userUpdate(String user_id, String user_email){
+		
+		String result = userDao.userUpdate(user_id,user_email);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("user_id", user_id);
+		map.put("user_email", user_email);
+		map.put("result", result);
+		
+		return map;
+	}
+	
+	public User userLoginCheck(String user_id, String user_pass){
+		
+		User user = userDao.userLoginCheck(user_id, user_pass);
+	
+		return user;
+	}
+
+	@Override
+	public User getUser(String user_id) {
+		return userDao.getUser(user_id);
+	}
+
+	@Override
+	public void userUpdate1(User user) {
+		userDao.userUpdate1(user);
+	}
 
 }

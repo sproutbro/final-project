@@ -12,12 +12,12 @@
 	</div>
 	
 	
-	<form action="odrForm" method="post" id="odrForm">
+	<form action="odrProcess" method="post" id="odrForm">
 	
 	
 		<div class="odrbox">
 			<h4 class="odrTh">배달정보</h4>
-			<h3 class="odrTd" id="user_addr2">구로구 고척동 62-78호</h3>
+			<h3 class="odrTd" id="user_addr2">																																																																																																																																							</h3>
 			<p class="odrTd">[도로명] 안양천로537가길 26</p>
 			<input type="text" value="좌측 끝방" name="odrAddr3" class="odrInput" />
 		</div>

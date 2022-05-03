@@ -46,12 +46,28 @@
 			user_id =#{user_id}
 	</select>
 	
+	<!-- 아이디 중복 확인 -->
+	<select id="idCheck" parameterType="String" resultType="int">
+		select count(*) from user where user_id = #{user_id}
+	</select>
 	
+	<select id="userLoginCheck" parameterType="map" resultType="User">
+		select user_id, user_pass
+			from user
+				where user_id = #{user_id}
+	</select>
 	
 	<!-- dorService  -->
 	<select id="getUser" parameterType="String" resultType="User">
 		SELECT * FROM user WHERE user_id = #{user_id}
 	</select>
+
+	<update id="update1" parameterType="User">
+		UPDATE user 
+		SET user_pass = #{user_pass} 
+		WHERE user_id = #{user_id}
+	</update>
+	
 
 	<resultMap id="userResultMap" type="User">
 		<id property="user_id" column="user_id" />

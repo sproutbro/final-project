@@ -84,9 +84,17 @@
 				<div class="storeName-min">${p.productName }</div>   
 				<div>${p.productPrice } 원</div>
 			</div>
+			<c:if test="${empty p.productImg and sessionScope.isCompany eq true}">
 			<div class="storeDetailImg">
-				<img src="#">
+				<div class="storelogoMsg">이미지를<br> 등록해주세요</div>
 			</div>
+			</c:if>
+			<c:if test="${empty p.productImg and sessionScope.isCompany ne true}"></c:if>
+			<c:if test="${not empty p.productImg}">
+			<div class="storeDetailImg">
+				<img class="productImg" src="./resources/upload/${p.storeImg}">
+			</div>
+			</c:if>
 		</div>
 		</a>
 		</c:if>
@@ -102,9 +110,19 @@
 			<div class="storeName-min">${p.productName }</div>   
 			<div>${p.productPrice } 원</div>
 		</div>
+		
+		<c:if test="${empty p.productImg and sessionScope.isCompany eq true}">
 		<div class="storeDetailImg">
-			<img src="#">
+		<div class="storelogoMsg">이미지를<br> 등록해주세요</div>
 		</div>
+		</c:if>
+		<c:if test="${empty p.productImg and sessionScope.isCompany ne true}"></c:if>
+		<c:if test="${not empty p.productImg}">
+		<div class="storeDetailImg">
+		<img class="productImg" src="./resources/upload/${p.storeImg}">
+		</div>
+		</c:if>
+
 	</div>
 	</a>
 	</c:if>

@@ -12,11 +12,13 @@
 <link rel="stylesheet" type="text/css" href="resources/css/cart.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/order.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/mypage.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/login.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/companyUpdate.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/sotreInsert.css" />
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="resources/js/commond.js"></script>
 <script src="resources/js/cart.js"></script>
 <script src="resources/js/user.js"></script>
-
 <script src="resources/js/myPage.js"></script>
 <script src="resources/js/delivery.js"></script>
 <!-- 섹시한 스크립트 -->
@@ -40,7 +42,6 @@
 		<%@ include file="template/cHeader.jsp"%>
 	</c:if>
 	<jsp:include page="${ param.body }" />
-	<%@ include file="template/footer.jsp"%>
 	
 </body>
 </html>

@@ -73,12 +73,12 @@ public class UserController {
 			session.setAttribute("productNo", modelMap.get("productNo"));
 			session.setAttribute("storeNo", modelMap.get("storeNo"));
 			logger.info("{}로그인함.", user_id);
+	
 			return "redirect:/";
 		} else {
 			
 			return "redirect:/user/LoginForm";
 		}
-
 		
 	}
 
@@ -98,6 +98,22 @@ public class UserController {
 		model.addAttribute("userCheck", userCheck);
 		
 		return "user/userFind";
+	}
+
+	@RequestMapping("/userUpdateForm")
+	public String userUpdate(String user_id, String user_email,
+			Model model) {
+		User user = userService.getUser(user_id);
+		
+		model.addAttribute("user", user);
+		return "user/myPage/userUpdateForm";
+	}
+	
+	@RequestMapping("updateProcess")
+	public String userUpdate(User user) {
+		userService.userUpdate1(user);
+		
+		return "user/myPage/myBaeminForm";
 	}
 
 }

@@ -40,13 +40,20 @@ $(function(){
 	});
 	
 	// cartBtn 버튼 클릭시 폼 서브밋
-	$("#cartBtn").click(function(){
+	$("#cartBtn").click(function(){		
+		if($("#isLogin").val() != "true") {
+			if (!confirm("로그인후 이용 가능합니다. \n로그인 창으로 이동하시겠습니까?")) {
+				return false;
+			} else {
+				window.location.href="userLoginForm";
+			}
+		}
 		
 		var pStoreNo = Number($("#pStoreNo").val());
 		var cStoreNo = Number($("#cStoreNo").val());
 		var totalCnt = Number($(".cartCnt").attr("data-totalCnt"));
 		var totalAmt = Number($(".detail-footer-cartBtn>span:last-child").attr("data-totalAmt"));
-		var productNo = $("#productNo").val();	
+		var productNo = $("#productNo").val();
 		
 		if(cStoreNo != pStoreNo && cStoreNo != 0) {
 			if (!confirm(" 장바구니에는 같은 가게의 메뉴만 담을 수 있습니다. \n 선택하신 메뉴를 장바구니에 담을 경우 이전에 담은 메뉴가 삭제됩니다.")) {
@@ -54,13 +61,11 @@ $(function(){
 		    } else {
 		    	$.ajax({
 		    		type: "POST",
-		    		url: "cartDelete.ajax?cartCnt=" + totalCnt,
+		    		url: "cartUpdate.ajax?cartCnt=" + totalCnt,
 		    		success: function(){
-		    			alert("연결 성공");
 		    			$("#cStoreNo").val(pStoreNo);
 		    		},
 		    		error: function(){
-		    			alert("연결 실패");
 		    		}
 		    	});
 		    }
@@ -164,4 +169,33 @@ $(function(){
 		
 	});
 		
+	$("#cartBtnForm").click(function(){
+		console.log("asdfjkla");
+		var isLigin = $(this).find("input").val();
+		
+		if(isLigin != 'true') {
+			if (!confirm("로그인후 이용 가능합니다. \n로그인 창으로 이동하시겠습니까?")) {
+				return false;
+			} else {
+				window.location.href="userLoginForm";
+			}
+		}
+	})
+	
+	//################### store update && Delete###################
+	$("#storeUpdateBtn").click(function(){
+		$("#storeForm").attr("action", "storeUpdate");
+		$("#storeForm").submit();
+	})
+	$("#storeDeleteBtn").click(function(){
+		
+		
+		if (!confirm("정말로 상점을 폐업하시겠습니까? \n(기존에 등록된 모든 내용은 삭제됩니다.)")) {
+			return false;
+		} else {
+			$("#storeForm").attr("action", "storeDelete");
+			$("#storeForm").submit();
+		}
+	
+	})
 })

@@ -31,6 +31,10 @@
 		ORDER BY c.cart_no
 	</select>
 	
+	<select id="getOdrList" parameterType="int" resultMap="productResultMap">
+		
+	</select>
+	
 	
 	<resultMap id="productResultMap" type="Product">
 		<id property="productNo" column="product_no" />

@@ -38,7 +38,27 @@
 			com_id = #{comId}
 		</where>
 		</if>
+		ORDER BY store_img is null ASC
 	</select>	
+	
+	<update id="storeUpdate" parameterType="Store" >
+		UPDATE store
+		SET 
+			store_name = #{storeName},
+			main_cat = #{mainCat},
+    		store_addr1 = #{storeAddr1},
+    		store_addr2 = #{storeAddr2},
+    		store_addr3 = #{storeAddr3},
+    		store_phone = #{storePhone},
+    		store_img = #{storeImg}
+		WHERE store_no = #{storeNo}
+	</update>
+	
+	<delete id="storeDelete" parameterType="int">
+		DELETE FROM store WHERE store_no = #{storeNo}
+	</delete>
+	
+	
 	
 	<resultMap id="resultMap" type="Store">
 		<id property="storeNo" column="store_no" />

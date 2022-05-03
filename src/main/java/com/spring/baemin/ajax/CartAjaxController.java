@@ -20,7 +20,6 @@ public class CartAjaxController {
 	@ResponseBody
 	public void cartInsert(int productNo, int cartCnt, int cartAmt, 
 				HttpSession session) {
-		
 		String user_id = (String) session.getAttribute("user_id");
 		
 		Cart cart = new Cart();
@@ -33,7 +32,7 @@ public class CartAjaxController {
 		
 	}
 	
-	@RequestMapping("cartDelete.ajax")
+	@RequestMapping("cartUpdate.ajax")
 	@ResponseBody
 	public void cartDelete(HttpSession session, int cartCnt) {
 		String user_id = (String) session.getAttribute("user_id");
