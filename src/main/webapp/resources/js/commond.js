@@ -8,7 +8,7 @@ $(function(){
 	})
 	
 	// 스토어 입점신청 주소찾기 버튼
-	$("#storeAddrBtn").click(findZipcode);
+	$("#storeAddrBtn, #userAddrBtn").click(findZipcode);
 
 });
 

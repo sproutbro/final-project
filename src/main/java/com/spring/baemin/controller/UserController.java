@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spring.baemin.domain.Address;
 import com.spring.baemin.domain.User;
+import com.spring.baemin.service.AddrService;
 import com.spring.baemin.service.UserService;
 
 @Controller
@@ -25,6 +27,8 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private AddrService addrService;
 
 	@RequestMapping("userJoinForm")
 	public String userJoinForm() {
@@ -110,8 +114,9 @@ public class UserController {
 	}
 	
 	@RequestMapping("updateProcess")
-	public String userUpdate(User user) {
+	public String userUpdate(User user, Address addr) {
 		userService.userUpdate1(user);
+		addrService.addrInsert(user.getUser_id(), addr);
 		
 		return "user/myPage/myBaeminForm";
 	}
