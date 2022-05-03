@@ -14,7 +14,7 @@
 		<div class="loginFormIn1">
 		<input id="user_id" class="id" placeholder="아이디 또는 이메일" name="user_id"  />
 		<input id="user_pass" class="pass" placeholder="비밀번호" name="user_pass" />
-		<input id="login" name="login" type="submit" value="로그인">
+		<input id="login" name="login" type="button" value="로그인">
 		</div>
 		</div>	
 	</form>

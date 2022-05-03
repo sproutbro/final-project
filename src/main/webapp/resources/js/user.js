@@ -216,7 +216,6 @@ $(function(){
 					 return false;
 				 } else {
 					 $("#passCheckBtn")
-					 	.css("border","1px solid RGB(120, 240, 124)")
 					 	.css("color","RGB(90, 240, 90)");
 					 $("#passCheckBtn").attr("data-passCheck", "1");
 				 }
