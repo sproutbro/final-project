@@ -38,9 +38,6 @@
 				<input type="hidden" name="storeNo" value="${storeNo}">
 			</td>
 		</tr>
-	
-		
-		
 	</table>
 	</form>
 	

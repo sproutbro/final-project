@@ -8,9 +8,6 @@ $(function(){
 		}, 7);
 	});
 	
-	 
-	
-	
 	// + 버튼 클릭시 
 	$(".cartCntAdd").click(function(){
 		var price = $(this).parent().attr("data-price");
@@ -170,7 +167,6 @@ $(function(){
 	});
 		
 	$("#cartBtnForm").click(function(){
-		console.log("asdfjkla");
 		var isLigin = $(this).find("input").val();
 		
 		if(isLigin != 'true') {
@@ -188,8 +184,6 @@ $(function(){
 		$("#storeForm").submit();
 	})
 	$("#storeDeleteBtn").click(function(){
-		
-		
 		if (!confirm("정말로 상점을 폐업하시겠습니까? \n(기존에 등록된 모든 내용은 삭제됩니다.)")) {
 			return false;
 		} else {

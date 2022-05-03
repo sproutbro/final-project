@@ -20,8 +20,8 @@
 			<tr>
 				<td class="storeTd1">현제 비밀번호</td>
 				<td>
-					<input type="password" id="user_pass" name="user_pass" />&emsp;
-					<input type="button" id="passCheckBtn" value="비밀번호 체크" data-passCheck="0"/>
+					<input type="password" id="user_pass" name="user_pass" />
+					<button type="button" id="passCheckBtn" data-passCheck="0">비밀번호 체크</button>
 				</td>
 			</tr>
 			<tr>
@@ -35,6 +35,20 @@
 				<td>
 					<input type="password" id="user_pass2" name="user_pass2" />&emsp;
 			
+				</td>
+			</tr>
+			<tr>
+				<td class="storeTd1">우편번호</td>
+				<td>
+					<input type="text" id="addr1" name="addr1" readonly />
+					<button type="button" id="userAddrBtn">주소 찾기</button>
+				</td>
+			</tr>
+			<tr>
+				<td class="storeTd1">주소</td>
+				<td>
+					<input type="text" id="addr2" name="addr2" size="40" readonly/><br>
+					<input type="text" id="addr3" name="addr3" size="40" />
 				</td>
 			</tr>
 			<tr>
