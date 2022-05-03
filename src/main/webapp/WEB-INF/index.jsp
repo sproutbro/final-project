@@ -13,6 +13,8 @@
 <link rel="stylesheet" type="text/css" href="resources/css/order.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/mypage.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/login.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/companyUpdate.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/sotreInsert.css" />
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="resources/js/commond.js"></script>
 <script src="resources/js/cart.js"></script>
