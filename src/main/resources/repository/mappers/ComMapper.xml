@@ -6,7 +6,7 @@
 
 	<select id="comPassCheck" resultType="String">
 		SELECT com_pass 
-		FROM Company 
+		FROM company 
 		WHERE com_id = #{comId}
 	</select>
 	
