@@ -154,16 +154,14 @@ $(() => {
 			reviewList.html("")
 			for(let i in res) {
 				let 합 = 0;
-				for(let i in res) {
-					reviewList.append(`
-						<div>
-							<p>작성자 : ${res[i].user_id}</p>
-							<p>별점 : ${res[i].r_scope}개</p>
-							<p>${res[i].r_content}</p>
-						</div>
-					`)
-					합 += res[i].r_scope
-				}
+				reviewList.append(`
+					<div>
+						<p>작성자 : ${res[i].user_id}</p>
+						<p>별점 : ${res[i].r_scope}개</p>
+						<p>${res[i].r_content}</p>
+					</div>
+				`)
+				합 += res[i].r_scope
 				$(".평균별점").html(`평균별점 : ${합 / res.length}`)
 			}
 		})
