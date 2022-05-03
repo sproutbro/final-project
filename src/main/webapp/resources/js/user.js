@@ -77,10 +77,7 @@ $(function(){
 			url : "userLoginCheck",
 			data : { user_id : user_id,
 				user_pass : user_pass},
-			success : function(map, status, xhr){
-					console.log(map.user_id);
-					console.log(map.user_pass);
-					
+			success : function(map, status, xhr){		
 					
 					if(map.user_id != user_id) {
 						alert("올바른 아이디가 아닙니다 \n 아이디를 확인해 주세여.");
@@ -201,11 +198,70 @@ $(function(){
 		return false;
 	})
 	
+	// update 비밀번호 체크
+	$("#passCheckBtn").click(function(){
+		var user_pass = $("#user_pass").val();
+		var user_id = $("#user_id").val();
+		
+		$.ajax({
+			type : "post",
+			url : "userLoginCheck",
+			data : { user_id : user_id,
+				user_pass : user_pass},
+			success : function(map, status, xhr){
+				 if(map.user_pass != user_pass) {
+					 alert("비밀번호가 틀렸습니다 \n 비밀번호를 확인해 주세요.");
+					 $("#user_pass").focus();
+					 return false;
+				 } else {
+					 $("#passCheckBtn")
+					 	.css("border","1px solid RGB(120, 240, 124)")
+					 	.css("color","RGB(90, 240, 90)");
+					 $("#passCheckBtn").attr("data-passCheck", "1");
+				 }
+				 
+			},
+			error : function(error, status, xhr){
+				alert("실패" + status + " - " + xhr.status);
+			}
+		});
+		
+	})
+	
+	// 비밀번호 확인
+	$("#user_pass2").keyup(function(){
+		var user_pass1 = $("#user_pass1").val();
+		var user_pass2 = $("#user_pass2").val();
+		var user_pass = $("#user_pass").val();
+		
+		if(user_pass == user_pass2) {
+			$(".passCheck").remove();
+			$("#user_pass2").after("<span class='passCheck'> 기존 비밀번호와 동일합니다. </span>");
+			$(".passCheck").css("color", "RGB(216, 64, 42");
+		} else if(user_pass1 != user_pass2) {
+			$(".passCheck").remove();
+			$("#user_pass2").after("<span class='passCheck'> 비밀번호가 일치하지 않습니다 </span>");
+			$(".passCheck").css("color", "RGB(216, 64, 42");
+		} else {
+			$(".passCheck").remove();
+			$("#user_pass2").after("<span class='passCheck'> 비밀번호 일치 </span>");
+			$(".passCheck").css("color", "RGB(120, 240, 124)");
+		}
+		
+	})
+	
+	
+	
 	//수정하기
 	$("#update").click(function(){
+		$("#user_pass").val($("#user_pass2").val());
+		var passCheck = Number($("#passCheckBtn").attr("data-passCheck"));
 		
-		
-		
+		if(passCheck != 1) {
+			alert("비밀번호 확인를 해주세요.");
+		} else {
+			$("#updateForm").submit();
+		}
 	})
 	
 	
