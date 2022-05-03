@@ -60,7 +60,7 @@ $(function(){
 		var user_id = $("#user_id").val();
 		var user_pass = $("#user_pass").val();
 		
-		/*if(user_id.length <= 0) {
+		if(user_id.length <= 0) {
 			alert("아이디가 입력되지 않았습니다.\n 아이디를 입력해 주세요.");
 			$("#user_id").focus();
 			return false;
@@ -70,7 +70,7 @@ $(function(){
 			$("#user_pass").focus();
 			return false;
 		}
-		*/
+		
 		
 		$.ajax({
 			type : "post",
@@ -124,12 +124,13 @@ $(function(){
 				success : function(data){
 					if(data == 1) {
 						$("#user_id_ok").css("display", "none");
-						$("#user_id_already").css("display", "block");
-						
+						$("#user_id_already").css("display", "block")
+						.css("color","red");
 						$("#user_id").attr("data-idCheck", "1");
 					}else {
 						$("#user_id_already").css("display", "none");
-						$("#user_id_ok").css("display", "block");
+						$("#user_id_ok").css("display", "block")
+						.css("color", "blue");
 						$("#user_id").attr("data-idCheck", "2");
 					}
 					

@@ -473,4 +473,16 @@ INSERT INTO `baemin`.`product` (`product_no`, `store_no`, `product_name`, `produ
 
 COMMIT;
 
+DROP TABLE IF EXISTS `baemin`.`review0`;
 
+CREATE TABLE IF NOT EXISTS `baemin`.`review0` (
+  `r_no` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `user_id` VARCHAR(45) NOT NULL,
+  `product_no` INT NOT NULL,
+  `r_scope` DECIMAL(4,3) NULL,
+  `r_reg_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `r_img` VARCHAR(200) NULL,
+  `r_content` VARCHAR(200) NULL
+)ENGINE = InnoDB CHARACTER SET utf8;
+
+COMMIT;
