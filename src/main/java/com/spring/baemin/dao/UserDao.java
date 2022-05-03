@@ -26,5 +26,7 @@ public interface UserDao {
 	String userUpdate(String user_id, String user_email);
 	
 	User userLoginCheck(String user_id, String user_pass);
-
+	
+	public abstract void userUpdate1(User user);
+	
 }

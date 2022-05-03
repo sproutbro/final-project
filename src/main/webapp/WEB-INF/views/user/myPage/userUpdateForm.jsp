@@ -7,20 +7,42 @@
 		<div class="main_address header2" >정보수정</div>
 		<div class="header3" >&nbsp;</div>
 	</div>
-	<form id="updateForm" action="updateProcess"
-		method="post">
-		<div>
-			<input type="text" id="user_id" name="user_id" value="${ sessionScope.user_id }"/>
-			<input type="hidden" id="rename" name="rename" value="x"/>
-		</div><br/>
-		이메일 : <input type="text" id="user_email" name="user_email" 
-			value="${sessionScope.user_email }" readonly/><br/>
-		현재 비밀번호 : <input type="text" id="user_pass" name="user_pass" /><br/>
-		신규 비밀번호 : <input type="text" id="user_pass1" name="user_pass1" /><br/>
-		
-		
-		<br/>
-		<input type="button" id="update" name="update" value="수정하기" />&nbsp;
-		<input type="button" id="delete" name="delete" value="식제하기" />
+	<form id="updateForm" action="updateProcess" method="post">
+		<table class="storeTable">
+			<tr>
+				<td class="storeTd1">아이디</td>
+				<td><input type="text" id="user_id" name="user_id" value="${user.user_id }" readonly/></td>
+			</tr>
+			<tr>
+				<td class="storeTd1">이메일</td>
+				<td><input type="text" id="user_email" name="user_email" value="${user.user_email }" readonly/></td>
+			</tr>
+			<tr>
+				<td class="storeTd1">현제 비밀번호</td>
+				<td>
+					<input type="password" id="user_pass" name="user_pass" />&emsp;
+					<input type="button" id="passCheckBtn" value="비밀번호 체크" data-passCheck="0"/>
+				</td>
+			</tr>
+			<tr>
+				<td class="storeTd1">신규 비밀번호</td>
+				<td>
+					<input type="password" id="user_pass1" name="user_pass1" />&emsp;
+				</td>
+			</tr>
+			<tr>
+				<td class="storeTd1">비밀번호 확인</td>
+				<td>
+					<input type="password" id="user_pass2" name="user_pass2" />&emsp;
+			
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="storeTd1">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					<input type="button" id="update" name="update" value="수정하기" />&nbsp;
+					<input type="button" id="delete" name="delete" value="삭제하기" />
+				</td>
+			</tr>
+		</table>
 	</form>
 </article>
