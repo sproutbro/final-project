@@ -2,11 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <article>
+<div class="storeFormInsertWrap">
 	<form id="storeForm" action="storeInsert" enctype="multipart/form-data" method="post">
 		<input type="hidden" name="comId" value="${sessionScope.comId}" />		
-		
+		<div class="companyComId">
 		회사명 : ${sessionScope.comId }<br>
+		</div>
+		<div class="storegongback"></div>
 		가게이름 : <input type="text" name="storeName" value="${store.storeName }"><br/>
+		<div class="storegongback"></div>
 		카테고리 : 
 		<select name="mainCat">
 			<option value="1">돈까스,회,일식</option>
@@ -25,27 +29,35 @@
 			<option value="14">야식</option>
 			<option value="15">도시락</option>
 		</select><br/>
-		
+		<div class="storegongback"></div>
 		우편번호 : 
 		<input type="text" id="addr1" name="storeAddr1" value="${store.storeAddr1 }">
 		<button id="storeAddrBtn" type="button">우편번호 찾기</button>
-		
+		<div class="storegongback"></div>
 		<br/>
 		주소 : 
 		<input type="text" id="addr2" name="storeAddr2" value="${store.storeAddr2 }"><br/>
+		<div class="storegongback"></div>
 		상세주소 : 
 		<input type="text" id="addr3" name="storeAddr3" value="${store.storeAddr3 }"><br/>
+		<div class="storegongback"></div>
 		전화번호 : 
-		<input type="text" name="phone1" value=${phone1 }> - 
-		<input type="text" name="phone2" value=${phone2 }> - 
-		<input type="text" name="phone3" value=${phone3 }><br/>
+		<input type="text" name="phone1" size="4"maxlength="4" value=${phone1 }> - 
+		<input type="text" name="phone2" size="4" maxlength="4" value=${phone2 }> - 
+		<input type="text" name="phone3" size="4" maxlength="4" value=${phone3 }><br/>
+		<div class="storegongback"></div>
 		파일<input type="file" id="file1"name="storeImage" size="70" maxlength="50" multiple>
 		<div class="drop-zone">
 			파일을 드래그해주세요.
 		</div>
-		
+		<div class="storegongback"></div>
 		<!-- 입점 신청 버튼 -->
-		<c:if test="${empty store }"><button type="submit">입점 신청</button></c:if>
+		
+		<c:if test="${empty store }">
+		<div class="storeSumbit">
+		<button type="submit">입점 신청</button>
+		</div>
+		</c:if>
 		<!-- 상점 수정 버튼 -->
 		<c:if test="${not empty store  }">
 			<button id="storeUpdateBtn" type="button">상점 정보 수정</button>
@@ -54,7 +66,7 @@
 		</c:if>
 		
 	</form>
-
+</div>
 
  <script>
       
