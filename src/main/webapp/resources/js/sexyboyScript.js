@@ -152,8 +152,8 @@ $(() => {
 		}).done(res => {
 			let reviewList = $(".reviewList")
 			reviewList.html("")
+			let 합 = 0;
 			for(let i in res) {
-				let 합 = 0;
 				reviewList.append(`
 					<div>
 						<p>작성자 : ${res[i].user_id}</p>
@@ -193,7 +193,7 @@ $(() => {
 
 		//Review
 		let reviewList = $(".reviewList")
-
+		
 		if(reviewList) {
 			$.post({
 				url: "review/reviewList",
