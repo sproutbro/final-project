@@ -62,7 +62,7 @@
 	<div class="sotreContent flex">
 		<div>메뉴</div>
 		<div><a href="storeDetailInfo?storeNo=${storeNo }">정보</a></div>
-		<div>리뷰</div>
+		<div><a href="review?storeNo=${storeNo}">리뷰</a></div>
 	</div>
 	<div class="storeCat flex">
 		<div>대표 메뉴</div>
