@@ -11,8 +11,6 @@ DROP SCHEMA IF EXISTS `baemin` ;
 CREATE SCHEMA IF NOT EXISTS `baemin` DEFAULT CHARACTER SET utf8 ;
 USE `baemin` ;
 
-select * from user;
-
 -- -----------------------------------------------------
 -- Table `baemin`.`user`
 -- -----------------------------------------------------
@@ -35,8 +33,6 @@ CREATE TABLE IF NOT EXISTS `baemin`.`user` (
   UNIQUE INDEX `u_nickname_UNIQUE` (`user_nick` ASC) ,
   UNIQUE INDEX `u_phone_UNIQUE` (`user_phone` ASC) )
 ENGINE = InnoDB;
-
-select * from user;
 
 -- -----------------------------------------------------
 -- Table `baemin`.`company`
@@ -358,6 +354,21 @@ CREATE TABLE IF NOT EXISTS `baemin`.`o_detail` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+DROP TABLE IF EXISTS `baemin`.`review0`;
+
+CREATE TABLE IF NOT EXISTS `baemin`.`review0` (
+  `r_no` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `user_id` VARCHAR(45) NOT NULL,
+  `product_no` INT NOT NULL,
+  `r_scope` DECIMAL(4,3) NULL,
+  `r_reg_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `r_img` VARCHAR(200) NULL,
+  `r_content` VARCHAR(200) NULL
+)ENGINE = InnoDB CHARACTER SET utf8;
+
+COMMIT;
+
+
 
 ALTER TABLE baemin.address CONVERT TO character SET utf8;
 ALTER TABLE baemin.cart CONVERT TO character SET utf8;
@@ -373,6 +384,7 @@ ALTER TABLE baemin.user CONVERT TO character SET utf8;
 ALTER TABLE baemin.search CONVERT TO character SET utf8;
 ALTER TABLE baemin.wish CONVERT TO character SET utf8;
 ALTER TABLE baemin.o_detail CONVERT TO character SET utf8;
+
 
 -- -----------------------------------------------------
 -- Data for table `baemin`.`user`
