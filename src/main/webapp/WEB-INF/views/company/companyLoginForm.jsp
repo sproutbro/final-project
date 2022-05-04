@@ -10,6 +10,7 @@
 	<div class="dashed1"> </div>
 	<div class="gongback"> </div>
 	<form action="companyLoginProcess">
+		<input type="text" id="comId" class="comId" placeholder="아이디" name="comId" />
 		<input type="password" id="pass" class="pass" placeholder="비밀번호" name="comPass" />
 		<input type="submit" value="로그인">	
 	</form>
