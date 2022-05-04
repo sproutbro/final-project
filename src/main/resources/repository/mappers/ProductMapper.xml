@@ -27,7 +27,7 @@
 		SELECT p.* FROM cart c 
 		inner join product p 
 		ON c.product_no LIKE p.product_no 
-		WHERE c.user_id = #{user_id}
+		WHERE c.user_id = #{user_id} AND cart_is_pay_check = 0
 		ORDER BY c.cart_no
 	</select>
 	
