@@ -23,6 +23,8 @@ public class CartDaoImpl implements CartDao {
 	
 	@Override
 	public void cartAdd(Cart cart, int result) {
+		
+		System.out.println("result : " + result);
 		if(result == 0) {
 			sqlSession.insert(NAME_SPACE + ".cartInsert", cart);
 		} else {

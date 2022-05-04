@@ -22,15 +22,7 @@ public class CartServiceImpl implements CartService {
 	
 	@Override
 	public void cartAdd(Cart cart) {
-		
-		
-		
-		// boolean cartStoreCheck = cartDao.cartStoreCheck(user_id)
-		
-		
-		
-		
-		
+
 		int result = cartDao.isProductCheck(cart);
 		cartDao.cartAdd(cart, result);
 	}
