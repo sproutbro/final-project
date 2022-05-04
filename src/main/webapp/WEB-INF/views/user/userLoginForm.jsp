@@ -13,23 +13,20 @@
 		<div class="loginFormIn">
 		<div class="loginFormIn1">
 		<input id="user_id" class="id" placeholder="아이디 또는 이메일" name="user_id"  />
-		<input id="user_pass" class="pass" placeholder="비밀번호" name="user_pass" />
+		<input type="password" id="user_pass" class="pass" placeholder="비밀번호" name="user_pass" />
 		<input id="login" name="login" type="button" value="로그인">
 		</div>
 		</div>	
 	</form>
 	<div class="companyLogin">
-	<a href="companyLoginForm">사장로그인</a>
+	<a href="companyLoginForm">사장로그인</a> | 
 	<a href="companyInsertForm">사장 회원가입</a>
 	</div>
 	<br><br><br>
 	<a href="userFind?userCheck=true">아이디 찾기</a> | 
 	<a href="userFind?userCheck=false">비밀번호 찾기</a>
 	<br><br><br><br><br> 
-	<div>페이스북 로그인</div>
-	<div>네이버 로그인</div>
-	<div>Apple 로그인</div>
-	<br> 
+
 	<div>혹시, 배달의민족이 처음이신가요? 
 		<a href="userJoinForm">회원가입</a>
 		<div class="gongback"> </div>

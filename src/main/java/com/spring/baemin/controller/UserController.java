@@ -29,7 +29,13 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private AddrService addrService;
-
+	
+	@RequestMapping("/home")
+	public String Home() {
+		return "user/main";
+	}
+	
+	
 	@RequestMapping("userJoinForm")
 	public String userJoinForm() {
 		logger.info("회원가입폼 입장.");
