@@ -18,7 +18,7 @@ public class EmailService {
 	
 	public void emailInsert() throws MessagingException, UnsupportedEncodingException {
 		String FROM = "jongbam12358@gmail.com";
-		String FROMNAME = "지오서비스";
+		String FROMNAME = "Team iT-imagination";
 		String TO = "whdxoddl999@naver.com";
 		String SMTP_USERNAME = "jongbam12358@gmail.com";
 		String SMTP_PASSWORD = "hfmaanooruuwwdfq";
@@ -30,7 +30,7 @@ public class EmailService {
 
 		String BODY = String.join(System.getProperty("line.separator"), 
 				"<h1>인증 번호</h1>",
-				"<p>123456789</p>."
+				"<p>54684</p>."
 				);
 		
 		Properties props = System.getProperties();

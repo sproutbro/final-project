@@ -4,7 +4,7 @@
 <article>
 	<form id="companydeleteProcess">
 		<input type="hidden" name="comId" value="${sessionScope.comId}">
-		<input type="reset" value="다시쓰기"/>
+		
 		<input type="submit" value="삭제하기" />
 		<a href="userLoginForm">로그인화면</a>
 	</form>

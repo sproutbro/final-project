@@ -12,7 +12,7 @@
 	
 	<form action="companyLoginProcess">
 		<input id="id" class="id" placeholder="아이디 또는 이메일" name="comId"  />
-		<input id="pass" class="pass" placeholder="비밀번호" name="comPass" />
+		<input type="password" id="pass" class="pass" placeholder="비밀번호" name="comPass" />
 		<input type="submit" value="로그인">	
 	</form>
 	<div class="gongback"> </div>

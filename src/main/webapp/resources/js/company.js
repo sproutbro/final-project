@@ -46,7 +46,7 @@ $(function(){
 	$("#emailCheck3").click(function(){
 		let emaliCheck = $("#emailCheck2").val();
 		
-		if(emaliCheck == "123456789") {
+		if(emaliCheck == "54684") {
 			alert("인증에 성공하셨습니다.");
 			$("#emailCheck3").prop("disabled", true);
 			$("#emailCheck2").prop("readonly", true);
