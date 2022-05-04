@@ -9,16 +9,18 @@
 		FROM cart 
 		WHERE
 			user_id = #{user_id} 
+			AND cart_is_pay_check = 0
 			<if test="productNo != 0">
 			AND product_no=#{productNo}
 			</if>
+			
 	</select>
 	
 	<insert id="cartInsert" parameterType="Cart">
 		INSERT INTO cart 
-			(user_id, product_no, cart_cnt, cart_amt) 
+			(user_id, product_no, cart_cnt, cart_amt, cart_is_pay_check) 
 		VALUES 
-			(#{user_id}, #{productNo}, #{cartCnt}, #{cartAmt})
+			(#{user_id}, #{productNo}, #{cartCnt}, #{cartAmt}, 0)
 	</insert>
 	
 	<update id="cartUpdate" parameterType="Cart">
