@@ -16,7 +16,7 @@
 	</div>
 	<div class="storeList">
 		<div class="storeImg smallIng">
-			<img src="#" />
+			
 		</div>
 		<div class="storeContent cartContent">
 			<span class="p-detail-price">가격 : ${ pList[status.index].productPrice}</span><br>
