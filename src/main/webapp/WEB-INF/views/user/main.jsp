@@ -8,12 +8,12 @@
 		<div class="header3" >&nbsp;</div>
 	</div>
 	<div class="banner">
-		<img class="main_banner" src="#" />
+		<img class="main_banner" src="resources/img/ss.png" />
 	</div>
 	<div class="recommended_menu">
-		<span><img src="#"></span>
-		<span><img src="#"></span>
-		<span><img src="#"></span>
+		<span><img src="resources/img/first.png"></span>
+		<span><img src="resources/img/fifth.png"></span>
+		<span><img src="resources/img/fourth.png"></span>
 	</div>
 	<div class="flex-wrap main-category">
 		<a href="storeListForm?mainCat=1"><img src="resources/img/icon/main/g.png"><br>돈까스·회·일식</a>
@@ -24,8 +24,8 @@
 		<a href="storeListForm?mainCat=6"><img src="resources/img/icon/main/e.png"><br>분식</a> 
 		<a href="storeListForm?mainCat=7"><img src="resources/img/icon/main/n.png"><br>찜·탕·찌개 </a>
 		<a href="storeListForm?mainCat=8"><img src="resources/img/icon/main/i.png"><br>피자</a> 
-		<a href="storeListForm?mainCat=9"><img src="#"><br>양식 </a>
-		<a href="storeListForm?mainCat=10"><img src="#"><br>고기·구이</a> 
+		<a href="storeListForm?mainCat=9"><img src="resources/img/icon/main/t.png"><br>양식 </a>
+		<a href="storeListForm?mainCat=10"><img src="resources/img/icon/main/t.png"><br>고기·구이</a> 
 		<a href="storeListForm?mainCat=11"><img src="resources/img/icon/main/l.png"><br>족발·보쌈</a> 
 		<a href="storeListForm?mainCat=12"><img src="resources/img/icon/main/j.png"><br>아시안</a> 
 		<a href="storeListForm?mainCat=13"><img src="resources/img/icon/main/p.png"><br>패스트푸드</a> 
