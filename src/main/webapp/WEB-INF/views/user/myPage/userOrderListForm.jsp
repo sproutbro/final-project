@@ -37,7 +37,9 @@
 		</div>
 		<a href="storeDetailForm?storeNo=${sList[status.index].storeNo }">
 		<div class="storeList">
-			<div class="storeImg"><img src="#"></div>
+			<c:if test="${not empty sList[status.index].storeImg }">
+			<div class="storeImg"><img src="./resources/upload/${s.storeImg }"></div>
+			</c:if>
 			<div class="storeContent">
 				<p class="storeName-min">${sList[status.index].storeName} ></p>
 				<c:forEach var="p" items="${o.pList }" varStatus="status">

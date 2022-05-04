@@ -4,7 +4,7 @@
 <header>
 	<div id="header" class="header_info"></div>
 	<div class="main-a flex1">
-		<a href="/"><img class="wrap-logo" src="resources/img/baemin-logo.png"></a>
+		<a href="home"><img class="wrap-logo" src="resources/img/baemin-logo.png"></a>
 		<c:if test="${not sessionScope.isLogin }">
 		<div>
 			<a href="userJoinForm">회원가입</a>

@@ -43,6 +43,10 @@ $(function(){
 				return false;
 			} else {
 				window.location.href="userLoginForm";
+				console.log("asdfjlk");
+				$("#cartAhref").attr("href", "userLoginForm");
+				
+				return false;
 			}
 		}
 		
@@ -174,6 +178,7 @@ $(function(){
 				return false;
 			} else {
 				window.location.href="userLoginForm";
+				return false;
 			}
 		}
 	})
