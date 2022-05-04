@@ -141,7 +141,7 @@ $(function(){
 	})
 		
 	// Order Form 전송
-	$("#odrForm").click(function(){
+	$(".detail-footer-cartBtn").click(function(){
 		// 핸드폰 번호 세팅
 		var odrPhone = $("#orderUserPhone").text();
 		$("#odrPhone").val(odrPhone);
@@ -161,7 +161,7 @@ $(function(){
 			$("input[name=odrIsDis]").attr("value", 0);
 		}
 		
-
+		console.log("asdjflksajldk");
 		// 추후 addr 테이블 생성 후 보안 예정
 		$("#odrAddr2").val($("#user_addr2").text());
 		
@@ -187,6 +187,7 @@ $(function(){
 	$("#storeUpdateBtn").click(function(){
 		$("#storeForm").attr("action", "storeUpdate");
 		$("#storeForm").submit();
+		
 	})
 	$("#storeDeleteBtn").click(function(){
 		if (!confirm("정말로 상점을 폐업하시겠습니까? \n(기존에 등록된 모든 내용은 삭제됩니다.)")) {

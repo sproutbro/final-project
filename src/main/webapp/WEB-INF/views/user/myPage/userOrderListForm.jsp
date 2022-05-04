@@ -51,4 +51,7 @@
 	</div>
 	</c:forEach>
 	
+	<c:if test="${odrListCheck eq false }">
+		주문내역이 없습니다.
+	</c:if>
 </article>

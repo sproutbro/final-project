@@ -85,31 +85,41 @@ public class OrderServiceImpl implements OrderService {
 		// 유저별 주문 목록 요청
 		oList = odrDao.getOrderList(user_id);
 		
-		for(int i = 0; i < oList.size(); i++) {
+		if(oList.size() != 0) {
+			for(int i = 0; i < oList.size(); i++) {
+				
+				// 주문별 카트, 프로덕트 리스트 요청
+				int odrNo = oList.get(i).getOdrNo();
+				
+				cList = odrDao.getCartList(odrNo);
+				pList = odrDao.getProductList(odrNo);
+				
+				System.out.println("cartNo : " + cList.get(i).getCartNo());
+				System.out.println("productNo : " + pList.get(i).getProductNo());
+				
+				// 주문리스트 2차원 배열 생성 
+				oList.get(i).setcList(cList);
+				oList.get(i).setpList(pList);
+				
+				// 주문별 상점 정보 요청
+				int storeNo = pList.get(i).getStoreNo();
+				Store s = storeDao.getStore(storeNo);
+				
+				// 주문별 상점 정보 입력
+				sList.add(s);
+			}
+			// 맵 생성 및 주문, 상정 목록 맵 전달
+			Map<String, Object> odrListMap = new HashMap<String, Object>();
+			odrListMap.put("oList", oList);
+			odrListMap.put("sList", sList);
+			odrListMap.put("odrListCheck", true);
 			
-			// 주문별 카트, 프로덕트 리스트 요청
-			int odrNo = oList.get(i).getOdrNo();
-			cList = odrDao.getCartList(odrNo);
-			pList = odrDao.getProductList(odrNo);
-			
-			// 주문리스트 2차원 배열 생성 
-			oList.get(i).setcList(cList);
-			oList.get(i).setpList(pList);
-			
-			// 주문별 상점 정보 요청
-			int storeNo = pList.get(0).getStoreNo();
-			Store s = storeDao.getStore(storeNo);
-			
-			// 주문별 상점 정보 입력
-			sList.add(s);
+			return odrListMap;
+		} else {
+			 Map<String, Object> odrListMap = new HashMap<String, Object>();
+			 odrListMap.put("odrListCheck", false);
+			 return odrListMap;
 		}
-
-		// 맵 생성 및 주문, 상정 목록 맵 전달
-		Map<String, Object> odrListMap = new HashMap<String, Object>();
-		odrListMap.put("oList", oList);
-		odrListMap.put("sList", sList);
-		
-		return odrListMap;
 	}
 
 }

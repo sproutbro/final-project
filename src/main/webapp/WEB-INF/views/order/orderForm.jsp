@@ -77,18 +77,17 @@
 		
 		<div class="space">&nbsp;</div>
 		
-		<a href="#">
+		
 			<div class="flex1">
 				<h4>선물함</h4>
 				<span>0원  &gt;</span>
 			</div>
-		</a>
-		<a href="#">
+		
 			<div class="flex1">
 				<h4>할인쿠폰</h4>
 				<span>0원  &gt;</span>
 			</div>
-		</a>
+		
 		
 		<div class="space">&nbsp;</div>
 		

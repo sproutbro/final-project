@@ -52,8 +52,7 @@
 	<update id="cartIsPayCheck" parameterType="String">
 		UPDATE cart SET cart_is_pay_check = 1 WHERE user_id = #{user_id}
 	</update>
-	
-	
+
 	
 	<resultMap id="cartResultMap" type="Cart">
 		<id property="cartNo" column="cart_no" />
