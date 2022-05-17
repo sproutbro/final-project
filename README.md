@@ -1,4 +1,4 @@
-# 국비교육과정 Final Project
+# Final Project
 
 ### Back End : Spirng
 ### Front End : JSP
